@@ -1,0 +1,167 @@
+{
+  "project": "SelfCompassion-Diary-APHW",
+  "version": "v3",
+  "date": "2026-10-24",
+  "status": "DRAFT - for Plumber hash, then Matt lock | v3 (Plumber fixes); v2 applies Matt 11:32 PT decisions",
+  "approval": "Matt Monnot, 2026-10-24 09:40 PT (relayed by Mastermind)",
+  "data": {
+    "days": "data/raw/days.sav",
+    "days_sha256": "9304c468438bbd1d301d4405c9a4a4096d59b019abd04e6a9b26766a44e1acb4",
+    "persons_sha256": "d12dc3d73e037888fd888b3c0305354cef65ccaa409ed004b32e4f5a4b3af949",
+    "rows_viewed_by_bots": false
+  },
+  "framing": {
+    "paper_type": "short methods note",
+    "habit_framing": "dropped",
+    "phase_contrasts_B2": "dropped",
+    "scale_and_inertia": "additional analyses only",
+    "novelty": "day-level adherence (meditation vs non-meditation days within person) is not analysed in Li et al. 2021 (Note 2026-10-24e)"
+  },
+  "window": {
+    "Period": 2,
+    "time": [
+      7,
+      20
+    ],
+    "phase_variable": "Period (not week/IntPeriod; codebook mismatch row)"
+  },
+  "alignment": {
+    "primary": "previous_day: morning 'past 24 h' item on row t+1 describes diary day t",
+    "day20_rule": "meditation for time 20 would come from row 21 (Period 3, structurally 0) -> set missing (confirmed Matt 11:32 PT)",
+    "sensitivity": "same_row"
+  },
+  "hypotheses": {
+    "H1_primary": {
+      "estimand": "fixed within-person meditation slope b_within on same-day SC (SD units)",
+      "direction": "one-sided, b_within > 0",
+      "decision_rule": "supported if posterior P(b_within>0) >= .975 (Matt 11:32 PT 2026-10-24) AND convergence criteria met; report median, 90% and 95% CrI",
+      "sign": 1,
+      "reporting": "median, 90% and 95% CrI, P(effect in hypothesised direction), P(effect beyond 0.2 SD in hypothesised direction), beside the .975 rule"
+    },
+    "H2_secondary": {
+      "estimand": "within-person meditation day t on EE day t+1, adjusted for EE day t (AR term)",
+      "direction": "one-sided, < 0",
+      "decision_rule": "supported if P(b_within<0) >= .975 AND convergence met; secondary, no confirmatory claim if H1 fails",
+      "sign": -1,
+      "reporting": "median, 90% and 95% CrI, P(effect in hypothesised direction), P(effect beyond 0.2 SD in hypothesised direction), beside the .975 rule"
+    },
+    "additional_analyses": [
+      "between-person meditation propensity g",
+      "within-person SD (scale) of SC/EE",
+      "AR(1) inertia phi",
+      "PS as outcome"
+    ]
+  },
+  "model": {
+    "engine": "Stan via cmdstanr (custom DSEM-style)",
+    "file": "dsem_meditation.stan",
+    "levels": "days within persons",
+    "centering": "latent person-mean: meditation ~ Bernoulli(p_i), within part = m_it - p_i (Hamaker & Grasman 2015; Hamaker et al. 2018; Asparouhov, Hamaker & Muthen 2018)",
+    "random_effects": "intercept + meditation slope, LKJ(2) correlation",
+    "ar": "AR(1) on person-centred lagged outcome, common phi",
+    "covariates": [
+      "WD (weekend)",
+      "time centred at 13.5, /7"
+    ],
+    "person_covariates": "none in primary (TSC, demographics not entered)",
+    "standardization": "outcome z-scored on observed analysis-window values; meditation 0/1"
+  },
+  "priors": {
+    "standardized_slopes": "Normal(0, 0.5)",
+    "intercept": "Normal(0,1)",
+    "phi": "Normal(0,0.5) truncated (-1,1)",
+    "sd_intercept": "half-Normal(0,1)",
+    "sd_slope": "half-Normal(0,0.5)",
+    "sigma": "half-Normal(0,1)",
+    "meditation_logit_mean": "Normal(0,1.5)",
+    "sensitivity": "slope prior SD x2 (1.0) and x0.5 (0.25)",
+    "checklist": "WAMBS (Depaoli & van de Schoot 2017)"
+  },
+  "mcmc": {
+    "seed": 20261024,
+    "chains": 4,
+    "parallel_chains": 2,
+    "iter_warmup": 1000,
+    "iter_sampling": 1000,
+    "adapt_delta": 0.95,
+    "max_treedepth": 12,
+    "rhat_max": 1.01,
+    "ess_min": 400,
+    "divergences": "0 required; if >0 rerun at adapt_delta .99 and report",
+    "ppc": "posterior predictive checks of SC/EE distribution and lag-1 autocorrelation"
+  },
+  "missing_data": {
+    "primary": "MAR: missing outcomes as parameters in the joint likelihood; missing meditation days contribute no within-person information",
+    "sensitivity": "delta-adjusted pattern-mixture: missing SC shifted -0.25 and -0.50 SD (Matt-approved 11:32 PT); missing EE shifted +0.50 SD (Matt-approved 2026-10-24 11:53 PT: \"Keep both defaults\")",
+    "exclusions": "none; persons with zero no-meditation days are kept and their count reported",
+    "li_exclusion_disclosure": "Li et al. 2021 excluded participants with < 7 meditations; we disclose it and refit under it as S5 only"
+  },
+  "reliability": {
+    "method": "two-level CFA omega within and between (Geldhof, Preacher & Zyphur 2014), lavaan MLR",
+    "scales": {
+      "SC": [
+        "SC1",
+        "rSC2",
+        "SC3",
+        "rSC4",
+        "SC5",
+        "rSC6"
+      ],
+      "EE": [
+        "EE1",
+        "EE2",
+        "EE3",
+        "EE4",
+        "EE5"
+      ]
+    },
+    "window": "all 28 days and Period 2 reported"
+  },
+  "multiplicity": {
+    "family": "single confirmatory test (H1); no adjustment",
+    "secondary": "H2 reported with full posterior, labelled secondary; not combined with H1 into a family claim",
+    "additional_analyses": "no decision thresholds; descriptive posteriors only (Rubin 2021)"
+  },
+  "sensitivity_list": {
+    "S1": "prior SD x2 / x0.5 on H1",
+    "S2": "same-row alignment (H1)",
+    "S3": "pattern-mixture delta -0.25 / -0.50 SD (H1)",
+    "S4": "H2 under S1, S2 and delta +0.50 SD (EE +0.50 SD shift Matt-approved 2026-10-24 11:53 PT: \"Keep both defaults\"; sign -1)",
+    "S5": "Li <7-meditation exclusion (H1)",
+    "S6": "observed person-mean centering brms model (H1, sign +1); sensitivity only; specification Matt-approved 2026-10-24 11:53 PT: \"Keep both defaults\""
+  },
+  "precision_statement": "N = 65 persons; codebook shows 725 yes, 147 no, 38 missing meditation person-days in Period 2. With few no-days per person, the within-person slope will be imprecise; no power claim is made. Precision is reported as the 95% CrI width and posterior SD of b_within; a result is called inconclusive when the 95% CrI includes both 0 and |0.2| SD.",
+  "software": {
+    "R": "4.5.0",
+    "cmdstanr": "0.9.0",
+    "CmdStan": "2.40.0 (cmdstanr::cmdstan_version(), recorded 2026-10-24 by Blacksmith)",
+    "brms": "2.22.0",
+    "rstan": "2.32.7",
+    "lavaan": "0.7-3 (deviation from 0.6.19: shared box library used by other projects; diary models are brms; lavaan only in R/03_omega.R)",
+    "posterior": "1.6.1 (renv.lock)",
+    "haven": "2.5.4 (renv.lock)",
+    "dplyr": "1.1.4 (renv.lock)",
+    "jsonlite": "1.9.1 (renv.lock)",
+    "renv": "1.1.2",
+    "lockfile": "renv.lock generated by Blacksmith via renv::snapshot(type='implicit') on 2026-10-24, before any fit; hash to be recorded by Plumber"
+  },
+  "outputs": "results/results_aggregate.json (aggregates only), fits_summary.rds",
+  "compute": "light CPU, 2 parallel chains, local only",
+  "inconclusive_band_sd": 0.2,
+  "decision_threshold": 0.975,
+  "matt_decisions_2026-10-24_1132": "Matt-approved (11:32 PT, \"go with your suggestion\"): P>=.975; SC pattern-mixture shifts -0.25/-0.50 SD; |0.2| SD inconclusive band; day 20 missing.",
+  "sensitivity_direction": {
+    "S1": 1,
+    "S2": 1,
+    "S3": 1,
+    "S4": -1,
+    "S5": 1,
+    "S6": 1
+  },
+  "matt_decisions_2026-10-24_1153": {
+    "quote": "Keep both defaults",
+    "EE_pmm_shift_+0.50SD": "Matt-approved 2026-10-24 11:53 PT: \"Keep both defaults\"",
+    "S6_specification": "Matt-approved 2026-10-24 11:53 PT: \"Keep both defaults\": brms, observed person-mean centering, SC z-scored, SC ~ med_wc + med_pm + WD + time_c + (1 + med_wc | ID) + ar(time, gr=ID, p=1), prior normal(0,0.5) on ALL class-b coefficients, 4 chains x 1000 warmup + 1000 sampling, adapt_delta .95, max_treedepth 12, seed from mcmc.seed"
+  },
+  "pending_matt": {}
+}

@@ -1,0 +1,100 @@
+{
+  "created": "2026-10-24 13:19:38 PDT",
+  "n_fits": 13,
+  "accepted_fits": ["H1_primary", "H2_secondary", "S1_prior_x2", "S1_prior_x05", "S2_same_row", "S3_pmm_m025", "S3_pmm_m050", "S4_H2_prior_x2", "S4_H2_prior_x05", "S4_H2_same_row", "S4_H2_pmm_p050", "S5_li_exclusion", "S6_observed_centering"],
+  "rejected_fits": [],
+  "draws_per_fit": 4000,
+  "files": [
+    {
+      "fit": "H1_primary",
+      "file": "results/regen_v3/b_within/H1_primary.csv",
+      "source_variable": "b_within (Stan)",
+      "n_draws": 4000,
+      "sha256": "427c7fc9d2ec49b6b965704a284fb35611604fd9efff09d303121c4780775022"
+    },
+    {
+      "fit": "H2_secondary",
+      "file": "results/regen_v3/b_within/H2_secondary.csv",
+      "source_variable": "b_within (Stan)",
+      "n_draws": 4000,
+      "sha256": "94bf74d397c7a95f3a633c72b6229be7f2f6adde766944923a099bac27dfcb86"
+    },
+    {
+      "fit": "S1_prior_x2",
+      "file": "results/regen_v3/b_within/S1_prior_x2.csv",
+      "source_variable": "b_within (Stan)",
+      "n_draws": 4000,
+      "sha256": "54cc2afd01f447a727ed2b85f9562934309f0c39186f5443250da0b73817cbf3"
+    },
+    {
+      "fit": "S1_prior_x05",
+      "file": "results/regen_v3/b_within/S1_prior_x05.csv",
+      "source_variable": "b_within (Stan)",
+      "n_draws": 4000,
+      "sha256": "9d4c5654a601a74d69ebf2fc0966390fab16766d465f2d3b71c52861948072a2"
+    },
+    {
+      "fit": "S2_same_row",
+      "file": "results/regen_v3/b_within/S2_same_row.csv",
+      "source_variable": "b_within (Stan)",
+      "n_draws": 4000,
+      "sha256": "b12941a9c9cf3c7022736f2f95e2a5709ef29dc2cc635faedf5600ae88de394e"
+    },
+    {
+      "fit": "S3_pmm_m025",
+      "file": "results/regen_v3/b_within/S3_pmm_m025.csv",
+      "source_variable": "b_within (Stan)",
+      "n_draws": 4000,
+      "sha256": "2b522258f6f688d766626efcfefc009e79e1c8abfae09ad38493d5412da81ddd"
+    },
+    {
+      "fit": "S3_pmm_m050",
+      "file": "results/regen_v3/b_within/S3_pmm_m050.csv",
+      "source_variable": "b_within (Stan)",
+      "n_draws": 4000,
+      "sha256": "41cba3b99c0dbd3777edfcd13b7eca808dfbbab73911df3cc4475d49df2723c9"
+    },
+    {
+      "fit": "S4_H2_prior_x2",
+      "file": "results/regen_v3/b_within/S4_H2_prior_x2.csv",
+      "source_variable": "b_within (Stan)",
+      "n_draws": 4000,
+      "sha256": "07f782dd2ced31b4748dea5b2dca42dbd26aee33f0132529506254887e1f86a5"
+    },
+    {
+      "fit": "S4_H2_prior_x05",
+      "file": "results/regen_v3/b_within/S4_H2_prior_x05.csv",
+      "source_variable": "b_within (Stan)",
+      "n_draws": 4000,
+      "sha256": "f2765fb8944a66af9e246e5e6968d91744c2f3d75b880e5ff0492d3dfea4ee09"
+    },
+    {
+      "fit": "S4_H2_same_row",
+      "file": "results/regen_v3/b_within/S4_H2_same_row.csv",
+      "source_variable": "b_within (Stan)",
+      "n_draws": 4000,
+      "sha256": "0a4ea215cdcfce9ba6e90d5fb37348386ce463792c91872a34139b01234ce05d"
+    },
+    {
+      "fit": "S4_H2_pmm_p050",
+      "file": "results/regen_v3/b_within/S4_H2_pmm_p050.csv",
+      "source_variable": "b_within (Stan)",
+      "n_draws": 4000,
+      "sha256": "628aca9390babd2703b8d1f1bbebda1b50c65c9303e3f070c05d9a335f05abb1"
+    },
+    {
+      "fit": "S5_li_exclusion",
+      "file": "results/regen_v3/b_within/S5_li_exclusion.csv",
+      "source_variable": "b_within (Stan)",
+      "n_draws": 4000,
+      "sha256": "427c7fc9d2ec49b6b965704a284fb35611604fd9efff09d303121c4780775022"
+    },
+    {
+      "fit": "S6_observed_centering",
+      "file": "results/regen_v3/b_within/S6_observed_centering.csv",
+      "source_variable": "b_med_wc (brms)",
+      "n_draws": 4000,
+      "sha256": "594053c32af8740ca0d376bd92c48a7c49edfbc4fc893277a3889876c3e1995b"
+    }
+  ]
+}

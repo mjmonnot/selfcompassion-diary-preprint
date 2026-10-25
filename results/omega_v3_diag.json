@@ -1,0 +1,750 @@
+{
+  "date": "2026-10-24 16:19:55 PDT",
+  "seed": 20261024,
+  "days_sha256": "9304c468438bbd1d301d4405c9a4a4096d59b019abd04e6a9b26766a44e1acb4",
+  "estimator": "lavaan two-level CFA, MLR, missing=ml (syntax identical to R/03_omega.R ml_omega)",
+  "period2_primary": {
+    "label": "Period 2 (time 7-20), prepare_days(previous_day)",
+    "n_rows": 910,
+    "n_clusters": 65,
+    "SC": {
+      "omega_locked_formula_UNCORRECTED": {
+        "omega_within": 0.986134384898524,
+        "omega_between": 0.911906462980606
+      },
+      "omega_locked_equals_ml_omega_tol0": true,
+      "omega_corrected": {
+        "omega_within": 0.601442127997732,
+        "omega_between": 0.754474816428394
+      },
+      "omega_stdlv_crosscheck": {
+        "omega_within": 0.601442047707407,
+        "omega_between": 0.754479057838792
+      },
+      "corrected_matches_stdlv_tol": 0.0001,
+      "crosscheck_max_abs_gap": 4.24141039800929e-06,
+      "psi": {
+        "within": 0.021218051135889,
+        "between": 0.296853693945509
+      },
+      "psi_lavInspect_est": {
+        "within": 0.021218051135889,
+        "ID": 0.296853693945509
+      },
+      "converged_stdlv": true,
+      "warnings_stdlv_refit": ["lavaan->lav_data_full():  \n   Level-1 variable “SC1” has no variance within some clusters . The cluster \n   ids with zero within variance are: 7, 9, 12, 15, 16, 18, 23, 25, 30, 33, \n   35, 36, 37, 38, 43, 61, 67, 68, 70, 71, 72, 73, 79, 80, 86, 87, 90, 93.", "lavaan->lav_data_full():  \n   Level-1 variable “rSC2” has no variance within some clusters . The cluster \n   ids with zero within variance are: 2, 7, 12, 13, 23, 25, 26, 30, 33, 61, \n   72, 79, 87, 90, 91.", "lavaan->lav_data_full():  \n   Level-1 variable “SC3” has no variance within some clusters . The cluster \n   ids with zero within variance are: 2, 3, 6, 7, 9, 12, 13, 18, 23, 25, 26, \n   30, 33, 34, 36, 37, 38, 57, 60, 61, 62, 63, 70, 72, 74, 76, 79, 80, 86, \n   87, 90, 91.", "lavaan->lav_data_full():  \n   Level-1 variable “rSC4” has no variance within some clusters . The cluster \n   ids with zero within variance are: 7, 8, 12, 14, 23, 26, 30, 33, 35, 37, \n   38, 67, 72, 79, 87, 90, 93.", "lavaan->lav_data_full():  \n   Level-1 variable “SC5” has no variance within some clusters . The cluster \n   ids with zero within variance are: 2, 6, 7, 9, 12, 14, 15, 16, 23, 26, 30, \n   33, 35, 36, 61, 70, 72, 79, 80, 87, 90, 91, 92, 95.", "lavaan->lav_data_full():  \n   Level-1 variable “rSC6” has no variance within some clusters . The cluster \n   ids with zero within variance are: 2, 7, 12, 15, 18, 23, 25, 33, 35, 54, \n   61, 87, 90, 93, 95.", "lavaan->lav_data_full():  \n   some cases are empty and will be ignored: 33 68 187 191 194 199 248 283 \n   286 307 332 398 401 402 403 407 409 412 413 430 463 471 475 476 497 500 \n   553 560 599 614 664 706 708 711 713 769 770 775 776 817 818 822 825 890 \n   891 901 906 907 908 909.", "lavaan->lav_step11_estoptim():  \n   the optimizer warns that a solution has NOT been found!", "lavaan->lav_object_fit_by_level():  \n   estimation of the partially saturated model for the between level failed."],
+      "converged": true,
+      "post_check": true,
+      "nonpos_resid_var_within": [],
+      "nonpos_resid_var_between": [],
+      "resid_var_raw": {
+        "within": [
+          {
+            "lhs": "SC1",
+            "est": 0.117634134585181
+          },
+          {
+            "lhs": "rSC2",
+            "est": 0.173881816272382
+          },
+          {
+            "lhs": "SC3",
+            "est": 0.120753732144481
+          },
+          {
+            "lhs": "rSC4",
+            "est": 0.18778916642101
+          },
+          {
+            "lhs": "SC5",
+            "est": 0.147449433579221
+          },
+          {
+            "lhs": "rSC6",
+            "est": 0.223781480494318
+          }
+        ],
+        "between": [
+          {
+            "lhs": "SC1",
+            "est": 0.0697821607291276
+          },
+          {
+            "lhs": "rSC2",
+            "est": 0.508265992133061
+          },
+          {
+            "lhs": "SC3",
+            "est": 0.299658497999188
+          },
+          {
+            "lhs": "rSC4",
+            "est": 0.510200825273017
+          },
+          {
+            "lhs": "SC5",
+            "est": 0.00477064883848247
+          },
+          {
+            "lhs": "rSC6",
+            "est": 0.540136750385453
+          }
+        ]
+      },
+      "std_loadings": {
+        "within": [
+          {
+            "rhs": "SC1",
+            "est.std": 0.390909644637607
+          },
+          {
+            "rhs": "rSC2",
+            "est.std": 0.573880896211131
+          },
+          {
+            "rhs": "SC3",
+            "est.std": 0.243616834830637
+          },
+          {
+            "rhs": "rSC4",
+            "est.std": 0.520931262587469
+          },
+          {
+            "rhs": "SC5",
+            "est.std": 0.398205525783205
+          },
+          {
+            "rhs": "rSC6",
+            "est.std": 0.473567110580001
+          }
+        ],
+        "between": [
+          {
+            "rhs": "SC1",
+            "est.std": 0.899816104638205
+          },
+          {
+            "rhs": "rSC2",
+            "est.std": 0.336744610461197
+          },
+          {
+            "rhs": "SC3",
+            "est.std": 0.644804866820211
+          },
+          {
+            "rhs": "rSC4",
+            "est.std": 0.372330147372884
+          },
+          {
+            "rhs": "SC5",
+            "est.std": 0.993363002685569
+          },
+          {
+            "rhs": "rSC6",
+            "est.std": 0.369684282234932
+          }
+        ]
+      },
+      "std_resid_var": {
+        "within": [
+          {
+            "lhs": "SC1",
+            "est.std": 0.8471896497293
+          },
+          {
+            "lhs": "rSC2",
+            "est.std": 0.670660716963909
+          },
+          {
+            "lhs": "SC3",
+            "est.std": 0.940650837787102
+          },
+          {
+            "lhs": "rSC4",
+            "est.std": 0.728630619659025
+          },
+          {
+            "lhs": "SC5",
+            "est.std": 0.841432359235722
+          },
+          {
+            "lhs": "rSC6",
+            "est.std": 0.77573419177691
+          }
+        ],
+        "between": [
+          {
+            "lhs": "SC1",
+            "est.std": 0.190330977833726
+          },
+          {
+            "lhs": "rSC2",
+            "est.std": 0.886603067325337
+          },
+          {
+            "lhs": "SC3",
+            "est.std": 0.584226683724971
+          },
+          {
+            "lhs": "rSC4",
+            "est.std": 0.861370261357287
+          },
+          {
+            "lhs": "SC5",
+            "est.std": 0.0132299448955106
+          },
+          {
+            "lhs": "rSC6",
+            "est.std": 0.863333531468443
+          }
+        ]
+      },
+      "warnings": ["lavaan->lav_data_full():  \n   Level-1 variable “SC1” has no variance within some clusters . The cluster \n   ids with zero within variance are: 7, 9, 12, 15, 16, 18, 23, 25, 30, 33, \n   35, 36, 37, 38, 43, 61, 67, 68, 70, 71, 72, 73, 79, 80, 86, 87, 90, 93.", "lavaan->lav_data_full():  \n   Level-1 variable “rSC2” has no variance within some clusters . The cluster \n   ids with zero within variance are: 2, 7, 12, 13, 23, 25, 26, 30, 33, 61, \n   72, 79, 87, 90, 91.", "lavaan->lav_data_full():  \n   Level-1 variable “SC3” has no variance within some clusters . The cluster \n   ids with zero within variance are: 2, 3, 6, 7, 9, 12, 13, 18, 23, 25, 26, \n   30, 33, 34, 36, 37, 38, 57, 60, 61, 62, 63, 70, 72, 74, 76, 79, 80, 86, \n   87, 90, 91.", "lavaan->lav_data_full():  \n   Level-1 variable “rSC4” has no variance within some clusters . The cluster \n   ids with zero within variance are: 7, 8, 12, 14, 23, 26, 30, 33, 35, 37, \n   38, 67, 72, 79, 87, 90, 93.", "lavaan->lav_data_full():  \n   Level-1 variable “SC5” has no variance within some clusters . The cluster \n   ids with zero within variance are: 2, 6, 7, 9, 12, 14, 15, 16, 23, 26, 30, \n   33, 35, 36, 61, 70, 72, 79, 80, 87, 90, 91, 92, 95.", "lavaan->lav_data_full():  \n   Level-1 variable “rSC6” has no variance within some clusters . The cluster \n   ids with zero within variance are: 2, 7, 12, 15, 18, 23, 25, 33, 35, 54, \n   61, 87, 90, 93, 95.", "lavaan->lav_data_full():  \n   some cases are empty and will be ignored: 33 68 187 191 194 199 248 283 \n   286 307 332 398 401 402 403 407 409 412 413 430 463 471 475 476 497 500 \n   553 560 599 614 664 706 708 711 713 769 770 775 776 817 818 822 825 890 \n   891 901 906 907 908 909.", "NaNs produced", "NaNs produced", "lavaan->lav_step11_estoptim():  \n   the optimizer warns that a solution has NOT been found!", "lavaan->lav_object_fit_by_level():  \n   estimation of the partially saturated model for the within level failed.", "lavaan->lav_step11_estoptim():  \n   Model estimation FAILED! Returning starting values.", "lavaan->lav_object_fit_by_level():  \n   estimation of the partially saturated model for the between level failed."],
+      "warnings_ml_omega_refit": ["lavaan->lav_data_full():  \n   Level-1 variable “SC1” has no variance within some clusters . The cluster \n   ids with zero within variance are: 7, 9, 12, 15, 16, 18, 23, 25, 30, 33, \n   35, 36, 37, 38, 43, 61, 67, 68, 70, 71, 72, 73, 79, 80, 86, 87, 90, 93.", "lavaan->lav_data_full():  \n   Level-1 variable “rSC2” has no variance within some clusters . The cluster \n   ids with zero within variance are: 2, 7, 12, 13, 23, 25, 26, 30, 33, 61, \n   72, 79, 87, 90, 91.", "lavaan->lav_data_full():  \n   Level-1 variable “SC3” has no variance within some clusters . The cluster \n   ids with zero within variance are: 2, 3, 6, 7, 9, 12, 13, 18, 23, 25, 26, \n   30, 33, 34, 36, 37, 38, 57, 60, 61, 62, 63, 70, 72, 74, 76, 79, 80, 86, \n   87, 90, 91.", "lavaan->lav_data_full():  \n   Level-1 variable “rSC4” has no variance within some clusters . The cluster \n   ids with zero within variance are: 7, 8, 12, 14, 23, 26, 30, 33, 35, 37, \n   38, 67, 72, 79, 87, 90, 93.", "lavaan->lav_data_full():  \n   Level-1 variable “SC5” has no variance within some clusters . The cluster \n   ids with zero within variance are: 2, 6, 7, 9, 12, 14, 15, 16, 23, 26, 30, \n   33, 35, 36, 61, 70, 72, 79, 80, 87, 90, 91, 92, 95.", "lavaan->lav_data_full():  \n   Level-1 variable “rSC6” has no variance within some clusters . The cluster \n   ids with zero within variance are: 2, 7, 12, 15, 18, 23, 25, 33, 35, 54, \n   61, 87, 90, 93, 95.", "lavaan->lav_data_full():  \n   some cases are empty and will be ignored: 33 68 187 191 194 199 248 283 \n   286 307 332 398 401 402 403 407 409 412 413 430 463 471 475 476 497 500 \n   553 560 599 614 664 706 708 711 713 769 770 775 776 817 818 822 825 890 \n   891 901 906 907 908 909.", "NaNs produced"]
+    },
+    "EE": {
+      "omega_locked_formula_UNCORRECTED": {
+        "omega_within": 0.967033904446424,
+        "omega_between": 0.973163589050397
+      },
+      "omega_locked_equals_ml_omega_tol0": true,
+      "omega_corrected": {
+        "omega_within": 0.889174772714076,
+        "omega_between": 0.969306244924708
+      },
+      "omega_stdlv_crosscheck": {
+        "omega_within": 0.889174839285814,
+        "omega_between": 0.969307471534281
+      },
+      "corrected_matches_stdlv_tol": 0.0001,
+      "crosscheck_max_abs_gap": 1.2266095724689e-06,
+      "psi": {
+        "within": 0.273510695726936,
+        "between": 0.870862459531149
+      },
+      "psi_lavInspect_est": {
+        "within": 0.273510695726936,
+        "ID": 0.870862459531149
+      },
+      "converged_stdlv": true,
+      "warnings_stdlv_refit": ["lavaan->lav_data_full():  \n   Level-1 variable “EE1” has no variance within some clusters . The cluster \n   ids with zero within variance are: 2, 7, 9, 12, 18, 23, 33, 34, 43, 54, \n   60, 87, 90, 92, 93.", "lavaan->lav_data_full():  \n   Level-1 variable “EE2” has no variance within some clusters . The cluster \n   ids with zero within variance are: 2, 7, 9, 18, 23, 33, 34, 43, 54, 60, \n   71, 87, 90, 92, 93.", "lavaan->lav_data_full():  \n   Level-1 variable “EE3” has no variance within some clusters . The cluster \n   ids with zero within variance are: 2, 7, 9, 12, 18, 23, 33, 34, 43, 54, \n   60, 71, 87, 90, 92, 93.", "lavaan->lav_data_full():  \n   Level-1 variable “EE4” has no variance within some clusters . The cluster \n   ids with zero within variance are: 2, 7, 9, 12, 18, 23, 33, 34, 43, 54, \n   60, 71, 87, 90, 93.", "lavaan->lav_data_full():  \n   Level-1 variable “EE5” has no variance within some clusters . The cluster \n   ids with zero within variance are: 2, 7, 9, 12, 18, 23, 33, 34, 37, 43, \n   54, 60, 68, 87, 90, 93, 95.", "lavaan->lav_data_full():  \n   some cases are empty and will be ignored: 33 68 187 191 194 199 248 283 \n   286 307 332 398 401 402 403 407 409 412 413 430 463 471 475 476 497 500 \n   553 560 599 614 664 706 708 711 713 769 770 775 776 817 818 822 825 890 \n   891 901 906 907 908 909.", "lavaan->lav_step11_estoptim():  \n   the optimizer warns that a solution has NOT been found!", "lavaan->lav_step15_baseline():  \n   estimation of the baseline model failed.", "lavaan->lav_step11_estoptim():  \n   the optimizer warns that a solution has NOT been found!", "lavaan->lav_object_fit_by_level():  \n   estimation of the level-specific baseline model for the within level \n   failed.", "lavaan->lav_step11_estoptim():  \n   the optimizer warns that a solution has NOT been found!", "lavaan->lav_object_fit_by_level():  \n   estimation of the partially saturated model for the between level failed."],
+      "converged": true,
+      "post_check": true,
+      "nonpos_resid_var_within": [],
+      "nonpos_resid_var_between": [],
+      "resid_var_raw": {
+        "within": [
+          {
+            "lhs": "EE1",
+            "est": 0.152068777209342
+          },
+          {
+            "lhs": "EE2",
+            "est": 0.234839550843496
+          },
+          {
+            "lhs": "EE3",
+            "est": 0.179270628278664
+          },
+          {
+            "lhs": "EE4",
+            "est": 0.160394995410319
+          },
+          {
+            "lhs": "EE5",
+            "est": 0.154013240900688
+          }
+        ],
+        "between": [
+          {
+            "lhs": "EE1",
+            "est": 0.0462726298986797
+          },
+          {
+            "lhs": "EE2",
+            "est": 0.0767784200769755
+          },
+          {
+            "lhs": "EE3",
+            "est": 0.205916845387653
+          },
+          {
+            "lhs": "EE4",
+            "est": 0.101861305191284
+          },
+          {
+            "lhs": "EE5",
+            "est": 0.194512946337582
+          }
+        ]
+      },
+      "std_loadings": {
+        "within": [
+          {
+            "rhs": "EE1",
+            "est.std": 0.801672195058958
+          },
+          {
+            "rhs": "EE2",
+            "est.std": 0.786245896640923
+          },
+          {
+            "rhs": "EE3",
+            "est.std": 0.7620935477953
+          },
+          {
+            "rhs": "EE4",
+            "est.std": 0.784617944923043
+          },
+          {
+            "rhs": "EE5",
+            "est.std": 0.794373084156226
+          }
+        ],
+        "between": [
+          {
+            "rhs": "EE1",
+            "est.std": 0.974446791483276
+          },
+          {
+            "rhs": "EE2",
+            "est.std": 0.959122119351621
+          },
+          {
+            "rhs": "EE3",
+            "est.std": 0.890283539409476
+          },
+          {
+            "rhs": "EE4",
+            "est.std": 0.944287700681981
+          },
+          {
+            "rhs": "EE5",
+            "est.std": 0.867399826309425
+          }
+        ]
+      },
+      "std_resid_var": {
+        "within": [
+          {
+            "lhs": "EE1",
+            "est.std": 0.357321691669352
+          },
+          {
+            "lhs": "EE2",
+            "est.std": 0.381817390015312
+          },
+          {
+            "lhs": "EE3",
+            "est.std": 0.419213424408772
+          },
+          {
+            "lhs": "EE4",
+            "est.std": 0.384374680504741
+          },
+          {
+            "lhs": "EE5",
+            "est.std": 0.368971403168125
+          }
+        ],
+        "between": [
+          {
+            "lhs": "EE1",
+            "est.std": 0.0504534505679494
+          },
+          {
+            "lhs": "EE2",
+            "est.std": 0.0800847601704548
+          },
+          {
+            "lhs": "EE3",
+            "est.std": 0.207395219456536
+          },
+          {
+            "lhs": "EE4",
+            "est.std": 0.108320738340739
+          },
+          {
+            "lhs": "EE5",
+            "est.std": 0.24761754131838
+          }
+        ]
+      },
+      "warnings": ["lavaan->lav_data_full():  \n   Level-1 variable “EE1” has no variance within some clusters . The cluster \n   ids with zero within variance are: 2, 7, 9, 12, 18, 23, 33, 34, 43, 54, \n   60, 87, 90, 92, 93.", "lavaan->lav_data_full():  \n   Level-1 variable “EE2” has no variance within some clusters . The cluster \n   ids with zero within variance are: 2, 7, 9, 18, 23, 33, 34, 43, 54, 60, \n   71, 87, 90, 92, 93.", "lavaan->lav_data_full():  \n   Level-1 variable “EE3” has no variance within some clusters . The cluster \n   ids with zero within variance are: 2, 7, 9, 12, 18, 23, 33, 34, 43, 54, \n   60, 71, 87, 90, 92, 93.", "lavaan->lav_data_full():  \n   Level-1 variable “EE4” has no variance within some clusters . The cluster \n   ids with zero within variance are: 2, 7, 9, 12, 18, 23, 33, 34, 43, 54, \n   60, 71, 87, 90, 93.", "lavaan->lav_data_full():  \n   Level-1 variable “EE5” has no variance within some clusters . The cluster \n   ids with zero within variance are: 2, 7, 9, 12, 18, 23, 33, 34, 37, 43, \n   54, 60, 68, 87, 90, 93, 95.", "lavaan->lav_data_full():  \n   some cases are empty and will be ignored: 33 68 187 191 194 199 248 283 \n   286 307 332 398 401 402 403 407 409 412 413 430 463 471 475 476 497 500 \n   553 560 599 614 664 706 708 711 713 769 770 775 776 817 818 822 825 890 \n   891 901 906 907 908 909.", "lavaan->lav_step11_estoptim():  \n   the optimizer warns that a solution has NOT been found!", "lavaan->lav_step15_baseline():  \n   estimation of the baseline model failed.", "lavaan->lav_step11_estoptim():  \n   the optimizer warns that a solution has NOT been found!", "lavaan->lav_object_fit_by_level():  \n   estimation of the partially saturated model for the within level failed.", "lavaan->lav_step11_estoptim():  \n   Model estimation FAILED! Returning starting values.", "lavaan->lav_object_fit_by_level():  \n   estimation of the partially saturated model for the between level failed."],
+      "warnings_ml_omega_refit": ["lavaan->lav_data_full():  \n   Level-1 variable “EE1” has no variance within some clusters . The cluster \n   ids with zero within variance are: 2, 7, 9, 12, 18, 23, 33, 34, 43, 54, \n   60, 87, 90, 92, 93.", "lavaan->lav_data_full():  \n   Level-1 variable “EE2” has no variance within some clusters . The cluster \n   ids with zero within variance are: 2, 7, 9, 18, 23, 33, 34, 43, 54, 60, \n   71, 87, 90, 92, 93.", "lavaan->lav_data_full():  \n   Level-1 variable “EE3” has no variance within some clusters . The cluster \n   ids with zero within variance are: 2, 7, 9, 12, 18, 23, 33, 34, 43, 54, \n   60, 71, 87, 90, 92, 93.", "lavaan->lav_data_full():  \n   Level-1 variable “EE4” has no variance within some clusters . The cluster \n   ids with zero within variance are: 2, 7, 9, 12, 18, 23, 33, 34, 43, 54, \n   60, 71, 87, 90, 93.", "lavaan->lav_data_full():  \n   Level-1 variable “EE5” has no variance within some clusters . The cluster \n   ids with zero within variance are: 2, 7, 9, 12, 18, 23, 33, 34, 37, 43, \n   54, 60, 68, 87, 90, 93, 95.", "lavaan->lav_data_full():  \n   some cases are empty and will be ignored: 33 68 187 191 194 199 248 283 \n   286 307 332 398 401 402 403 407 409 412 413 430 463 471 475 476 497 500 \n   553 560 599 614 664 706 708 711 713 769 770 775 776 817 818 822 825 890 \n   891 901 906 907 908 909."]
+    }
+  },
+  "all28_days": {
+    "label": "all 28 diary days, raw items, no Period filter, no lag",
+    "n_rows": 1820,
+    "n_clusters": 65,
+    "SC": {
+      "omega_locked_formula_UNCORRECTED": {
+        "omega_within": 0.980478937957299,
+        "omega_between": 0.911423331914137
+      },
+      "omega_locked_equals_ml_omega_tol0": true,
+      "omega_corrected": {
+        "omega_within": 0.668433991151221,
+        "omega_between": 0.744949346709722
+      },
+      "omega_stdlv_crosscheck": {
+        "omega_within": 0.6684343091233,
+        "omega_between": 0.744947619195151
+      },
+      "corrected_matches_stdlv_tol": 0.0001,
+      "crosscheck_max_abs_gap": 1.72751457083731e-06,
+      "psi": {
+        "within": 0.0401378123081065,
+        "between": 0.283856929746598
+      },
+      "psi_lavInspect_est": {
+        "within": 0.0401378123081065,
+        "ID": 0.283856929746598
+      },
+      "converged_stdlv": true,
+      "warnings_stdlv_refit": ["lavaan->lav_data_full():  \n   Level-1 variable “SC1” has no variance within some clusters . The cluster \n   ids with zero within variance are: 9, 12, 23, 33, 35, 37, 38, 43, 67, 68, \n   71, 72, 79, 80, 87.", "lavaan->lav_data_full():  \n   Level-1 variable “rSC2” has no variance within some clusters . The cluster \n   ids with zero within variance are: 12, 23, 33, 87, 90, 91.", "lavaan->lav_data_full():  \n   Level-1 variable “SC3” has no variance within some clusters . The cluster \n   ids with zero within variance are: 3, 6, 9, 23, 26, 33, 37, 57, 63, 70, \n   72, 76, 79, 90, 91.", "lavaan->lav_data_full():  \n   Level-1 variable “rSC4” has no variance within some clusters . The cluster \n   ids with zero within variance are: 12, 23, 33, 35, 72, 87, 90.", "lavaan->lav_data_full():  \n   Level-1 variable “SC5” has no variance within some clusters . The cluster \n   ids with zero within variance are: 6, 9, 15, 23, 26, 33, 61, 72, 95.", "lavaan->lav_data_full():  \n   Level-1 variable “rSC6” has no variance within some clusters . The cluster \n   ids with zero within variance are: 12, 15, 33, 35, 93.", "lavaan->lav_data_full():  \n   some cases are empty and will be ignored: 5 22 62 68 79 80 131 138 191 220 \n   364 376 380 383 402 416 418 493 500 501 502 503 504 529 570 573 584 608 \n   615 638 661 790 797 800 801 802 806 810 820 822 825 826 857 926 929 932 \n   940 944 945 951 994 997 1006 1008 1088 1106 1113 1116 1119 1183 1194 1201 \n   1211 1223 1230 1282 1323 1329 1339 1341 1344 1413 1415 1418 1420 1427 1532 \n   1533 1537 1539 1552 1553 1567 1568 1636 1637 1641 1644 1647 1650 1779 1780 \n   1796 1799 1804 1809 1810 1811 1812 1816 1819.", "lavaan->lav_step11_estoptim():  \n   the optimizer warns that a solution has NOT been found!", "lavaan->lav_step15_baseline():  \n   estimation of the baseline model failed.", "lavaan->lav_object_post_check():  \n   some estimated ov variances are negative", "lavaan->lav_step11_estoptim():  \n   the optimizer warns that a solution has NOT been found!", "lavaan->lav_object_fit_by_level():  \n   estimation of the partially saturated model for the between level failed."],
+      "converged": true,
+      "post_check": false,
+      "nonpos_resid_var_within": [],
+      "nonpos_resid_var_between": "SC5",
+      "resid_var_raw": {
+        "within": [
+          {
+            "lhs": "SC1",
+            "est": 0.144461183912028
+          },
+          {
+            "lhs": "rSC2",
+            "est": 0.211813491712617
+          },
+          {
+            "lhs": "SC3",
+            "est": 0.15293887259295
+          },
+          {
+            "lhs": "rSC4",
+            "est": 0.203477784117484
+          },
+          {
+            "lhs": "SC5",
+            "est": 0.165335368605144
+          },
+          {
+            "lhs": "rSC6",
+            "est": 0.271731833249132
+          }
+        ],
+        "between": [
+          {
+            "lhs": "SC1",
+            "est": 0.0798507963969798
+          },
+          {
+            "lhs": "rSC2",
+            "est": 0.522077865129308
+          },
+          {
+            "lhs": "SC3",
+            "est": 0.255256032914624
+          },
+          {
+            "lhs": "rSC4",
+            "est": 0.508385363040152
+          },
+          {
+            "lhs": "SC5",
+            "est": -0.00738615683898004
+          },
+          {
+            "lhs": "rSC6",
+            "est": 0.505422898077761
+          }
+        ]
+      },
+      "std_loadings": {
+        "within": [
+          {
+            "rhs": "SC1",
+            "est.std": 0.46629652752738
+          },
+          {
+            "rhs": "rSC2",
+            "est.std": 0.550737898270296
+          },
+          {
+            "rhs": "SC3",
+            "est.std": 0.409546677437806
+          },
+          {
+            "rhs": "rSC4",
+            "est.std": 0.558534458270484
+          },
+          {
+            "rhs": "SC5",
+            "est.std": 0.511460968490633
+          },
+          {
+            "rhs": "rSC6",
+            "est.std": 0.495206412388237
+          }
+        ],
+        "between": [
+          {
+            "rhs": "SC1",
+            "est.std": 0.883432733855703
+          },
+          {
+            "rhs": "rSC2",
+            "est.std": 0.287986106086221
+          },
+          {
+            "rhs": "SC3",
+            "est.std": 0.671502964311269
+          },
+          {
+            "rhs": "rSC4",
+            "est.std": 0.349579083855113
+          },
+          {
+            "rhs": "SC5",
+            "est.std": 1.01101359625372
+          },
+          {
+            "rhs": "rSC6",
+            "est.std": 0.361078103269264
+          }
+        ]
+      },
+      "std_resid_var": {
+        "within": [
+          {
+            "lhs": "SC1",
+            "est.std": 0.782567548415907
+          },
+          {
+            "lhs": "rSC2",
+            "est.std": 0.696687767408817
+          },
+          {
+            "lhs": "SC3",
+            "est.std": 0.832271518999654
+          },
+          {
+            "lhs": "rSC4",
+            "est.std": 0.688039258924497
+          },
+          {
+            "lhs": "SC5",
+            "est.std": 0.738407677710623
+          },
+          {
+            "lhs": "rSC6",
+            "est.std": 0.754770609129572
+          }
+        ],
+        "between": [
+          {
+            "lhs": "SC1",
+            "est.std": 0.219546604752239
+          },
+          {
+            "lhs": "rSC2",
+            "est.std": 0.917064002701296
+          },
+          {
+            "lhs": "SC3",
+            "est.std": 0.549083768921178
+          },
+          {
+            "lhs": "rSC4",
+            "est.std": 0.87779446413102
+          },
+          {
+            "lhs": "SC5",
+            "est.std": -0.0221484918098809
+          },
+          {
+            "lhs": "rSC6",
+            "est.std": 0.869622603339471
+          }
+        ]
+      },
+      "warnings": ["lavaan->lav_data_full():  \n   Level-1 variable “SC1” has no variance within some clusters . The cluster \n   ids with zero within variance are: 9, 12, 23, 33, 35, 37, 38, 43, 67, 68, \n   71, 72, 79, 80, 87.", "lavaan->lav_data_full():  \n   Level-1 variable “rSC2” has no variance within some clusters . The cluster \n   ids with zero within variance are: 12, 23, 33, 87, 90, 91.", "lavaan->lav_data_full():  \n   Level-1 variable “SC3” has no variance within some clusters . The cluster \n   ids with zero within variance are: 3, 6, 9, 23, 26, 33, 37, 57, 63, 70, \n   72, 76, 79, 90, 91.", "lavaan->lav_data_full():  \n   Level-1 variable “rSC4” has no variance within some clusters . The cluster \n   ids with zero within variance are: 12, 23, 33, 35, 72, 87, 90.", "lavaan->lav_data_full():  \n   Level-1 variable “SC5” has no variance within some clusters . The cluster \n   ids with zero within variance are: 6, 9, 15, 23, 26, 33, 61, 72, 95.", "lavaan->lav_data_full():  \n   Level-1 variable “rSC6” has no variance within some clusters . The cluster \n   ids with zero within variance are: 12, 15, 33, 35, 93.", "lavaan->lav_data_full():  \n   some cases are empty and will be ignored: 5 22 62 68 79 80 131 138 191 220 \n   364 376 380 383 402 416 418 493 500 501 502 503 504 529 570 573 584 608 \n   615 638 661 790 797 800 801 802 806 810 820 822 825 826 857 926 929 932 \n   940 944 945 951 994 997 1006 1008 1088 1106 1113 1116 1119 1183 1194 1201 \n   1211 1223 1230 1282 1323 1329 1339 1341 1344 1413 1415 1418 1420 1427 1532 \n   1533 1537 1539 1552 1553 1567 1568 1636 1637 1641 1644 1647 1650 1779 1780 \n   1796 1799 1804 1809 1810 1811 1812 1816 1819.", "lavaan->lav_step11_estoptim():  \n   the optimizer warns that a solution has NOT been found!", "lavaan->lav_step15_baseline():  \n   estimation of the baseline model failed.", "lavaan->lav_object_post_check():  \n   some estimated ov variances are negative", "lavaan->lav_step11_estoptim():  \n   the optimizer warns that a solution has NOT been found!", "lavaan->lav_object_fit_by_level():  \n   estimation of the partially saturated model for the within level failed.", "lavaan->lav_step11_estoptim():  \n   Model estimation FAILED! Returning starting values.", "lavaan->lav_object_fit_by_level():  \n   estimation of the partially saturated model for the between level failed.", "lavaan->lav_object_post_check():  \n   some estimated ov variances are negative"],
+      "warnings_ml_omega_refit": ["lavaan->lav_data_full():  \n   Level-1 variable “SC1” has no variance within some clusters . The cluster \n   ids with zero within variance are: 9, 12, 23, 33, 35, 37, 38, 43, 67, 68, \n   71, 72, 79, 80, 87.", "lavaan->lav_data_full():  \n   Level-1 variable “rSC2” has no variance within some clusters . The cluster \n   ids with zero within variance are: 12, 23, 33, 87, 90, 91.", "lavaan->lav_data_full():  \n   Level-1 variable “SC3” has no variance within some clusters . The cluster \n   ids with zero within variance are: 3, 6, 9, 23, 26, 33, 37, 57, 63, 70, \n   72, 76, 79, 90, 91.", "lavaan->lav_data_full():  \n   Level-1 variable “rSC4” has no variance within some clusters . The cluster \n   ids with zero within variance are: 12, 23, 33, 35, 72, 87, 90.", "lavaan->lav_data_full():  \n   Level-1 variable “SC5” has no variance within some clusters . The cluster \n   ids with zero within variance are: 6, 9, 15, 23, 26, 33, 61, 72, 95.", "lavaan->lav_data_full():  \n   Level-1 variable “rSC6” has no variance within some clusters . The cluster \n   ids with zero within variance are: 12, 15, 33, 35, 93.", "lavaan->lav_data_full():  \n   some cases are empty and will be ignored: 5 22 62 68 79 80 131 138 191 220 \n   364 376 380 383 402 416 418 493 500 501 502 503 504 529 570 573 584 608 \n   615 638 661 790 797 800 801 802 806 810 820 822 825 826 857 926 929 932 \n   940 944 945 951 994 997 1006 1008 1088 1106 1113 1116 1119 1183 1194 1201 \n   1211 1223 1230 1282 1323 1329 1339 1341 1344 1413 1415 1418 1420 1427 1532 \n   1533 1537 1539 1552 1553 1567 1568 1636 1637 1641 1644 1647 1650 1779 1780 \n   1796 1799 1804 1809 1810 1811 1812 1816 1819.", "lavaan->lav_object_post_check():  \n   some estimated ov variances are negative"]
+    },
+    "EE": {
+      "omega_locked_formula_UNCORRECTED": {
+        "omega_within": 0.961441018964735,
+        "omega_between": 0.975508750184995
+      },
+      "omega_locked_equals_ml_omega_tol0": true,
+      "omega_corrected": {
+        "omega_within": 0.902770733940173,
+        "omega_between": 0.970001253777713
+      },
+      "omega_stdlv_crosscheck": {
+        "omega_within": 0.902770831384083,
+        "omega_between": 0.970003394565027
+      },
+      "corrected_matches_stdlv_tol": 0.0001,
+      "crosscheck_max_abs_gap": 2.14078731475276e-06,
+      "psi": {
+        "within": 0.372377443391071,
+        "between": 0.811799856966973
+      },
+      "psi_lavInspect_est": {
+        "within": 0.372377443391071,
+        "ID": 0.811799856966973
+      },
+      "converged_stdlv": true,
+      "warnings_stdlv_refit": ["lavaan->lav_data_full():  \n   Level-1 variable “EE1” has no variance within some clusters . The cluster \n   ids with zero within variance are: 9, 34, 92.", "lavaan->lav_data_full():  \n   Level-1 variable “EE2” has no variance within some clusters . The cluster \n   ids with zero within variance are: 9, 34, 92.", "lavaan->lav_data_full():  \n   Level-1 variable “EE3” has no variance within some clusters . The cluster \n   ids with zero within variance are: 9, 12, 34, 71.", "lavaan->lav_data_full():  \n   Level-1 variable “EE4” has no variance within some clusters . The cluster \n   ids with zero within variance are: 2, 9, 12, 34.", "lavaan->lav_data_full():  \n   Level-1 variable “EE5” has no variance within some clusters . The cluster \n   ids with zero within variance are: 12, 18, 34, 68, 95.", "lavaan->lav_data_full():  \n   some cases are empty and will be ignored: 5 22 62 68 79 80 131 138 191 220 \n   364 376 380 383 402 416 418 493 500 501 502 503 504 529 570 573 584 608 \n   615 638 661 790 797 800 801 802 806 810 820 822 825 826 857 926 929 932 \n   940 944 945 951 994 997 1006 1008 1088 1106 1113 1116 1119 1183 1194 1201 \n   1211 1223 1230 1282 1323 1329 1339 1341 1344 1413 1415 1418 1420 1427 1532 \n   1533 1537 1539 1552 1553 1567 1568 1636 1637 1641 1644 1647 1650 1779 1780 \n   1796 1799 1804 1809 1810 1811 1812 1816 1819.", "lavaan->lav_step11_estoptim():  \n   the optimizer warns that a solution has NOT been found!", "lavaan->lav_step15_baseline():  \n   estimation of the baseline model failed.", "lavaan->lav_step11_estoptim():  \n   the optimizer warns that a solution has NOT been found!", "lavaan->lav_object_fit_by_level():  \n   estimation of the partially saturated model for the within level failed.", "lavaan->lav_step11_estoptim():  \n   the optimizer warns that a solution has NOT been found!", "lavaan->lav_object_fit_by_level():  \n   estimation of the partially saturated model for the between level failed."],
+      "converged": true,
+      "post_check": true,
+      "nonpos_resid_var_within": [],
+      "nonpos_resid_var_between": [],
+      "resid_var_raw": {
+        "within": [
+          {
+            "lhs": "EE1",
+            "est": 0.171051746248124
+          },
+          {
+            "lhs": "EE2",
+            "est": 0.264043501058743
+          },
+          {
+            "lhs": "EE3",
+            "est": 0.174593774445838
+          },
+          {
+            "lhs": "EE4",
+            "est": 0.18224384398689
+          },
+          {
+            "lhs": "EE5",
+            "est": 0.177448749075973
+          }
+        ],
+        "between": [
+          {
+            "lhs": "EE1",
+            "est": 0.0224593824724014
+          },
+          {
+            "lhs": "EE2",
+            "est": 0.0694365311658862
+          },
+          {
+            "lhs": "EE3",
+            "est": 0.191355471309083
+          },
+          {
+            "lhs": "EE4",
+            "est": 0.0997793248923971
+          },
+          {
+            "lhs": "EE5",
+            "est": 0.198377444601449
+          }
+        ]
+      },
+      "std_loadings": {
+        "within": [
+          {
+            "rhs": "EE1",
+            "est.std": 0.827790049807388
+          },
+          {
+            "rhs": "EE2",
+            "est.std": 0.788123198842527
+          },
+          {
+            "rhs": "EE3",
+            "est.std": 0.808299104359551
+          },
+          {
+            "rhs": "EE4",
+            "est.std": 0.810577575738556
+          },
+          {
+            "rhs": "EE5",
+            "est.std": 0.802924330054141
+          }
+        ],
+        "between": [
+          {
+            "rhs": "EE1",
+            "est.std": 0.986447491253641
+          },
+          {
+            "rhs": "EE2",
+            "est.std": 0.960049385326923
+          },
+          {
+            "rhs": "EE3",
+            "est.std": 0.895372866506878
+          },
+          {
+            "rhs": "EE4",
+            "est.std": 0.940975957071934
+          },
+          {
+            "rhs": "EE5",
+            "est.std": 0.866490695784374
+          }
+        ]
+      },
+      "std_resid_var": {
+        "within": [
+          {
+            "lhs": "EE1",
+            "est.std": 0.314763633439882
+          },
+          {
+            "lhs": "EE2",
+            "est.std": 0.378861823446223
+          },
+          {
+            "lhs": "EE3",
+            "est.std": 0.346652557891548
+          },
+          {
+            "lhs": "EE4",
+            "est.std": 0.342963993709805
+          },
+          {
+            "lhs": "EE5",
+            "est.std": 0.355312520207109
+          }
+        ],
+        "between": [
+          {
+            "lhs": "EE1",
+            "est.std": 0.0269213469993982
+          },
+          {
+            "lhs": "EE2",
+            "est.std": 0.0783051777333978
+          },
+          {
+            "lhs": "EE3",
+            "est.std": 0.198307429923257
+          },
+          {
+            "lhs": "EE4",
+            "est.std": 0.114564248212557
+          },
+          {
+            "lhs": "EE5",
+            "est.std": 0.249193874119111
+          }
+        ]
+      },
+      "warnings": ["lavaan->lav_data_full():  \n   Level-1 variable “EE1” has no variance within some clusters . The cluster \n   ids with zero within variance are: 9, 34, 92.", "lavaan->lav_data_full():  \n   Level-1 variable “EE2” has no variance within some clusters . The cluster \n   ids with zero within variance are: 9, 34, 92.", "lavaan->lav_data_full():  \n   Level-1 variable “EE3” has no variance within some clusters . The cluster \n   ids with zero within variance are: 9, 12, 34, 71.", "lavaan->lav_data_full():  \n   Level-1 variable “EE4” has no variance within some clusters . The cluster \n   ids with zero within variance are: 2, 9, 12, 34.", "lavaan->lav_data_full():  \n   Level-1 variable “EE5” has no variance within some clusters . The cluster \n   ids with zero within variance are: 12, 18, 34, 68, 95.", "lavaan->lav_data_full():  \n   some cases are empty and will be ignored: 5 22 62 68 79 80 131 138 191 220 \n   364 376 380 383 402 416 418 493 500 501 502 503 504 529 570 573 584 608 \n   615 638 661 790 797 800 801 802 806 810 820 822 825 826 857 926 929 932 \n   940 944 945 951 994 997 1006 1008 1088 1106 1113 1116 1119 1183 1194 1201 \n   1211 1223 1230 1282 1323 1329 1339 1341 1344 1413 1415 1418 1420 1427 1532 \n   1533 1537 1539 1552 1553 1567 1568 1636 1637 1641 1644 1647 1650 1779 1780 \n   1796 1799 1804 1809 1810 1811 1812 1816 1819.", "lavaan->lav_step11_estoptim():  \n   the optimizer warns that a solution has NOT been found!", "lavaan->lav_step15_baseline():  \n   estimation of the baseline model failed.", "lavaan->lav_step11_estoptim():  \n   the optimizer warns that a solution has NOT been found!", "lavaan->lav_object_fit_by_level():  \n   estimation of the level-specific baseline model for the within level \n   failed.", "lavaan->lav_step11_estoptim():  \n   Model estimation FAILED! Returning starting values.", "lavaan->lav_object_fit_by_level():  \n   estimation of the partially saturated model for the between level failed."],
+      "warnings_ml_omega_refit": ["lavaan->lav_data_full():  \n   Level-1 variable “EE1” has no variance within some clusters . The cluster \n   ids with zero within variance are: 9, 34, 92.", "lavaan->lav_data_full():  \n   Level-1 variable “EE2” has no variance within some clusters . The cluster \n   ids with zero within variance are: 9, 34, 92.", "lavaan->lav_data_full():  \n   Level-1 variable “EE3” has no variance within some clusters . The cluster \n   ids with zero within variance are: 9, 12, 34, 71.", "lavaan->lav_data_full():  \n   Level-1 variable “EE4” has no variance within some clusters . The cluster \n   ids with zero within variance are: 2, 9, 12, 34.", "lavaan->lav_data_full():  \n   Level-1 variable “EE5” has no variance within some clusters . The cluster \n   ids with zero within variance are: 12, 18, 34, 68, 95.", "lavaan->lav_data_full():  \n   some cases are empty and will be ignored: 5 22 62 68 79 80 131 138 191 220 \n   364 376 380 383 402 416 418 493 500 501 502 503 504 529 570 573 584 608 \n   615 638 661 790 797 800 801 802 806 810 820 822 825 826 857 926 929 932 \n   940 944 945 951 994 997 1006 1008 1088 1106 1113 1116 1119 1183 1194 1201 \n   1211 1223 1230 1282 1323 1329 1339 1341 1344 1413 1415 1418 1420 1427 1532 \n   1533 1537 1539 1552 1553 1567 1568 1636 1637 1641 1644 1647 1650 1779 1780 \n   1796 1799 1804 1809 1810 1811 1812 1816 1819."]
+    }
+  },
+  "PS": "descriptive only per R/03_omega.R; not computed",
+  "lavaan_version": "0.7.3"
+}

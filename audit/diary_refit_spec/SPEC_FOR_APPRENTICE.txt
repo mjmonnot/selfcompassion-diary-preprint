@@ -1,0 +1,184 @@
+STRUCTURAL MODEL SPECIFICATION - SelfCompassion-Diary-APHW, H1 and H2 independent refit
+Prepared by Plumber (code-access auditor) for Apprentice Plumber. Words and plain math only.
+Contains no code, no file names, no results, no seed. Use your own seed.
+Labels: [PROTOCOL] = verbatim quote from the locked protocol v3 (prose or machine-readable copy).
+[LOCKED CODE] = what the locked implementation does where the protocol is silent.
+[FLAG] = ambiguity or protocol/code conflict. Where code and protocol differ, the code is what
+produced the fits you are checking; reproduce the code behaviour and note the flag.
+
+NOTATION
+i = person, t = diary day ("time", 1..28 in the raw file). Window rows are ordered by person, then t.
+y_it = outcome (SC for H1, EE for H2), standardized (see Q5). m_it = meditation indicator 0/1 aligned
+to day t (see Q4/alignment). WD_it = weekend indicator. tc_t = centred time.
+
+DATA WINDOW AND ALIGNMENT (applies to both hypotheses)
+[PROTOCOL] "Analyse Period 2 (time 7-20)." and "phase_variable": "Period (not week/IntPeriod; codebook mismatch row)".
+[PROTOCOL] "previous_day: morning 'past 24 h' item on row t+1 describes diary day t".
+[PROTOCOL] "meditation for time 20 would come from row 21 (Period 3, structurally 0) -> set missing".
+[LOCKED CODE] Within each person, sorted by time, med_day(t) = raw meditation item on the next row
+(row t+1), computed on the full 28-day series BEFORE filtering. Then keep only rows with Period = 2.
+Then set med_day(20) = missing. The outcome on each kept row is that row's own SC or EE.
+
+MODEL (both hypotheses; one joint model per fit)
+[PROTOCOL] "latent person-mean: meditation ~ Bernoulli(p_i), within part = m_it - p_i";
+"intercept + meditation slope, LKJ(2) correlation"; "AR(1) on person-centred lagged outcome, common phi";
+covariates "WD (weekend)", "time centred at 13.5, /7"; "person_covariates": "none in primary".
+[LOCKED CODE] full model, for every window row n = (i,t):
+  Meditation part:   alpha_i = mu_alpha + sd_alpha * z_i,  z_i ~ N(0,1);  p_i = inv_logit(alpha_i)
+                     m_it ~ Bernoulli(p_i)   for every row where m_it is observed.
+  Random effects:    (a_i, b_i) = (a0, b0) + diag(sd_a, sd_b) * L * (za_i, zb_i),  za, zb ~ N(0,1),
+                     L = Cholesky factor of a 2x2 correlation matrix R, R ~ LKJ(eta = 2).
+  Within deviation:  w_it = m_it - p_i if m_it observed; w_it = 0 if m_it missing.
+  Mean:              mu_it = a_i + b_i * w_it + g * (p_i - 0.5) + c_wd * WD_it + c_t * tc_t
+                            + phi * (y_i,t-1 - a_i)      [AR term omitted on the person's first window row]
+  Outcome:           y_it ~ Normal(mu_it, sigma)              if y_it observed
+                     y_it ~ Normal(mu_it + delta, sigma)      if y_it missing (y_it is a parameter)
+                     delta = 0 in H1 and H2 (MAR); nonzero only in pattern-mixture sensitivities.
+[FLAG] Between term is g * (p_i - 0.5), i.e. propensity centred at 0.5 on the probability scale. A comment
+in the locked model header writes "g * p_i"; the executed math uses (p_i - 0.5). Only a_i/a0 are affected
+(reparameterization), not b0, but reproduce (p_i - 0.5).
+[FLAG] An extra lagged-covariate coefficient exists in the locked model but is switched off in every
+H1/H2 fit (its term is identically zero); it still receives a prior N(0, slope_sd) and is sampled. It does
+not affect the likelihood; you may omit it.
+
+Q1. Meditation model.
+Yes: logit(p_i) = mu_alpha + u_i with u_i = sd_alpha * z_i ~ N(0, sd_alpha^2) [LOCKED CODE].
+u_i is NOT correlated with the outcome random effects: the LKJ correlation covers only (a_i, b_i); the
+meditation random effect is independent a priori [LOCKED CODE].
+The deviation is on the probability scale: w_it = m_it - p_i, with p_i the latent probability, not logit
+[PROTOCOL] "within part = m_it - p_i". p_i is estimated jointly (the Bernoulli likelihood and the outcome
+likelihood both inform it); it is not plugged in from a separate model.
+
+Q2. Lag centring and AR.
+[PROTOCOL] "AR(1) on person-centred lagged outcome, common phi".
+[LOCKED CODE] The lagged outcome is centred on the person's random intercept a_i (a_i = a0 + random
+intercept deviation), i.e. phi * (y_i,t-1 - a_i). It is NOT centred on the observed person mean, and not on
+a separate latent person mean mu_i. phi is a single fixed (common) coefficient, no random AR, constrained
+to (-1, 1).
+[FLAG] a_i is the intercept of a model that also contains covariate and between terms, so it equals the
+person's latent mean only approximately; the protocol's "person-centred" is implemented as centring on a_i.
+
+Q3. First day.
+[LOCKED CODE] The series starts at the first window row. For H1 that is day 7; day 6 (Period 1) is not
+used as a lag and is not in the data. Day 7 has no AR term (mu has no phi term on that row). From day 8
+on, the lag is the previous window row's outcome (day t-1). Rows are complete per person in the window
+grid (one row per person per day), so previous row = previous day.
+
+Q4. H2 construction and alignment.
+[PROTOCOL] H2 estimand: "within-person meditation day t on EE day t+1, adjusted for EE day t (AR term)".
+[LOCKED CODE] Start from the same Period 2 window (with med_day already aligned and day 20 set missing).
+Within each person, the meditation used on outcome row t is med_day(t-1) (lagged one row). Then the
+first window row per person (day 7, which has no lagged meditation) is dropped, so H2 outcome rows are
+days 8-20 and the first-row flag moves to day 8. Outcome = EE on that row.
+Consequence for alignment: med_day(t-1) is by construction the raw meditation item on row t itself (the
+morning report of day t-1). The day-20 missing value never enters H2 (it would only be used for day 21).
+Yes, the EE_t adjustment is just the AR term: phi * (EE_i,t-1 - a_i), where EE_i,t-1 is the previous kept
+row's EE. No separate EE covariate is entered.
+[FLAG] Because day 7 is dropped, day 8 (first H2 row) has no AR term, so the day-8 outcome is NOT adjusted
+for day-7 EE, and the day-7 EE value is not used anywhere in H2. This is a deviation from a literal reading
+of "adjusted for EE day t" for that one day; reproduce it.
+The Bernoulli meditation likelihood in H2 is on these lagged meditation values over days 8-20 rows.
+
+Q5. Standardization.
+[PROTOCOL] "outcome z-scored on observed analysis-window values; meditation 0/1".
+[LOCKED CODE] The outcome is z-scored ONCE, pooled across all persons, using the mean and sample SD
+(denominator n-1) of the observed (non-missing) values of the rows that enter that fit:
+ - H1: all Period 2 rows (days 7-20).
+ - H2: the rows remaining after the day-7 drop (days 8-20).
+Not person-wise. The meditation deviation is NOT standardized: m is 0/1 and w = m - p_i is on the
+probability scale. WD and tc are not standardized. So b0 is "SD of outcome per unit of m - p_i".
+
+Q6. SC and EE scoring.
+[LOCKED CODE] The model uses the daily SC and EE composite variables exactly as supplied in the raw
+diary file; the analysis code does no item scoring, no reversal, and no partial-item handling of its
+own. Any missing composite is treated as a missing outcome (latent, see Q10).
+[PROTOCOL] reliability item sets "SC": "SC1","rSC2","SC3","rSC4","SC5","rSC6"; "EE": "EE1".."EE5";
+and "the daily composites are item sums".
+[FLAG] Neither the protocol nor the locked code states whether the supplied composites were built from
+reversed items, nor how a day with some items missing was scored. Use the supplied SC and EE composite
+columns directly; do not rebuild them from items. If you rebuild from items you will not be reproducing
+the locked fit.
+
+Q7. Time and WD.
+[PROTOCOL] "time centred at 13.5, /7". [LOCKED CODE] tc_t = (time - 13.5) / 7, computed from the raw
+time variable of each kept row (so tc ranges over days 7-20, or 8-20 in H2, without re-centring).
+WD: [PROTOCOL] "WD (weekend)". [LOCKED CODE] the raw WD variable is used as a numeric value as supplied
+(labels stripped), not recoded.
+[FLAG] The protocol does not state WD's coding; it is whatever 0/1 dummy the raw file carries.
+
+Q8. Exclusions.
+[PROTOCOL] "exclusions": "none; persons with zero no-meditation days are kept and their count reported".
+[LOCKED CODE] No person or row exclusions in H1/H2. Persons with no meditation variance (all yes or all
+no in the window) are kept; their b_i is informed by the prior/hierarchy only. Li's rule (fewer than 7
+meditations) is used only in a sensitivity fit, not in H1/H2. Rows with missing meditation and/or missing
+outcome are kept (see Q10 and the missing rules below).
+
+Q9. Correlation and priors.
+Correlation: [PROTOCOL] "intercept + meditation slope, LKJ(2) correlation" -> R ~ LKJ(2) on the 2x2
+correlation of (a_i, b_i). The meditation propensity effect is outside this matrix (Q1).
+Priors ([PROTOCOL] where listed; slope_sd = 0.5 in H1 and H2):
+  b0      ~ Normal(0, slope_sd)          [PROTOCOL] "standardized_slopes": "Normal(0, 0.5)"
+  g       ~ Normal(0, slope_sd)          [LOCKED CODE] same scale as slopes
+  c_wd    ~ Normal(0, slope_sd)          [LOCKED CODE]
+  c_t     ~ Normal(0, slope_sd)          [LOCKED CODE]
+  a0      ~ Normal(0, 1)                 [PROTOCOL] "intercept": "Normal(0,1)"
+  phi     ~ Normal(0, 0.5) truncated to (-1, 1)   [PROTOCOL]
+  sd_a    ~ half-Normal(0, 1)            [PROTOCOL] "sd_intercept"
+  sd_b    ~ half-Normal(0, 0.5)          [PROTOCOL] "sd_slope" (does NOT scale with slope_sd)
+  sigma   ~ half-Normal(0, 1)            [PROTOCOL]
+  mu_alpha ~ Normal(0, 1.5)              [PROTOCOL] "meditation_logit_mean"
+  sd_alpha ~ half-Normal(0, 1)           [LOCKED CODE] (protocol silent) [FLAG]
+  z, za, zb ~ Normal(0, 1) (non-centred parameterization) [LOCKED CODE]
+  missing y_it: no separate prior; they get the outcome likelihood only.
+[FLAG] The protocol lists only "standardized_slopes" at N(0, 0.5); the code applies the same N(0, slope_sd)
+to g, c_wd and c_t as well (and they scale in the prior-sensitivity fits). The SD on the meditation logit
+random effect is not in the protocol.
+
+Q10. Missing lagged outcomes.
+Yes. [PROTOCOL] "missing outcomes as parameters in the joint likelihood". [LOCKED CODE] each missing y_it
+is ONE latent parameter that serves both as the outcome on row t and as the lag on row t+1 (the same
+value). In H1/H2 (delta = 0) it is drawn from Normal(mu_it, sigma). Missing meditation: [PROTOCOL]
+"missing meditation days contribute no within-person information" -> [LOCKED CODE] w_it = 0 on that row
+and no Bernoulli term; the row's outcome likelihood is still included.
+
+ESTIMAND
+[PROTOCOL] H1: "fixed within-person meditation slope b_within on same-day SC (SD units)",
+"one-sided, b_within > 0", "sign": 1.
+[PROTOCOL] H2: "within-person meditation day t on EE day t+1, adjusted for EE day t (AR term)",
+"one-sided, < 0", "sign": -1.
+[LOCKED CODE] b_within = b0, the fixed (population) within-person slope, in outcome SD units per unit of
+(m - p_i). Not the mean of b_i draws, not a person-specific slope.
+
+DECISION QUANTITIES (computed from the b0 draws, all chains pooled)
+[PROTOCOL] "supported if posterior P(b_within>0) >= .975 (Matt 11:32 PT 2026-10-24) AND convergence
+criteria met"; H2 "supported if P(b_within<0) >= .975 AND convergence met".
+[PROTOCOL] "a result is called inconclusive when the 95% CrI includes both 0 and |0.2| SD".
+With s = +1 (H1) or -1 (H2), report:
+  median; 90% CrI (5th, 95th percentiles); 95% CrI (2.5th, 97.5th percentiles);
+  P_pos = share of draws > 0; P_neg = share < 0; P_dir = share with s*b0 > 0;
+  P_beyond = share with s*b0 > 0.2 (SD units);
+  supported = converged AND zero divergences AND P_dir >= 0.975;
+  inconclusive = (q2.5 < 0 < q97.5) AND (q2.5 < -0.2 OR q97.5 > 0.2).
+[LOCKED CODE] Quantiles use the default (type 7) sample quantile.
+[FLAG] H2 prose lists reporting as "median, 95% CrI and P(b < -0.2 SD)" while the machine-readable copy
+lists 90% and 95% CrI for both; report both intervals.
+
+SAMPLER AND CONVERGENCE
+[PROTOCOL] "chains": 4, "iter_warmup": 1000, "iter_sampling": 1000, "adapt_delta": 0.95,
+"max_treedepth": 12, "rhat_max": 1.01, "ess_min": 400,
+"divergences": "0 required; if >0 rerun at adapt_delta .99 and report". Use NUTS (default HMC), your own seed.
+Report for b0, g, phi, sd_b, sigma (at minimum; all parameters if you can): R-hat, bulk ESS, tail ESS;
+total divergent transitions; number of max-treedepth hits.
+[LOCKED CODE] convergence = every R-hat below 1.01 and every bulk and tail ESS above 400 across exactly
+b_within, b0, g, phi, sd_b, sigma; divergences summed over chains. Treedepth hits are not checked.
+[FLAG] Strict vs inclusive inequality: code uses R-hat < 1.01 and ESS > 400; the agreed refit rule is
+R-hat <= 1.01 and ESS >= 400. Mastermind's rule also requires 0 treedepth hits, which the locked code
+never checked; report the count.
+
+COMPARISON (for your blind call, set by Mastermind)
+Posterior mean of b0 and P_dir: |diff| <= 3 * sqrt(MCSE_1^2 + MCSE_2^2), with MCSE for P_dir =
+sqrt(p(1-p)/ESS). CrI bounds descriptive only. Both fits must meet the convergence rule above.
+Report the posterior mean and its MCSE as well as the median.
+
+
+ADDENDUM (scale anchors, from documents only): Li et al. (2021, APHW, p. 6) gives the ranges as SC 1-5, PS (PSS-4) 0-4 and EE 0-6. A reverse-keyed item would be scored as (min + max) - x, so 6 - x for SC and 4 - x for PS. Which items are reversed, and whether stored columns are raw or already reversed, must come from the codebook only. If it is not documented, say so; do not infer it from the data. For H1/H2, use the supplied composites as they are (see FLAG 6).

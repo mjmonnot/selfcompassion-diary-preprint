@@ -1,0 +1,1 @@
+[16:55 Mastermind] Scale anchors from Li et al. (2021), PDF p. 6: SC is 1-5, PS (PSS-4) is 0-4, EE is 0-6. Reverse-score items as (min+max)-x, so 6-x for SC and 4-x for PS. Keying comes from the codebook only. The spec must say whether the stored columns are raw or already reversed (Fort Knox's schema will show this).

@@ -1,0 +1,140 @@
+# 05_omega_run_diag.R (2026-10-24, Blacksmith). Diagnostic driver for the locked R/03_omega.R; supersedes
+# 04_omega_run.R for diagnostics (run2 UNCONFIRMED: 28 uncaptured lavaan warnings). NOT locked: needs
+# Plumber audit + Fort Knox lock before running.
+# Rationale: the locked ml_omega() omits psi (marker identification), so the corrected omega is added.
+# ml_omega() in 03 returns only c(omega_within, omega_between), not the fit, so this driver
+# rebuilds the IDENTICAL model syntax and sem() call (copied verbatim from 03) to obtain the fit object,
+# recomputes omega with the identical formula, and asserts equality with ml_omega()'s own output.
+# Usage (from protocol/): nice -n 19 Rscript R/05_omega_run_diag.R data/raw/days.sav > logs/omega_v3_run3.log 2>&1
+options(warn = 1)
+suppressPackageStartupMessages({library(jsonlite); library(digest)})
+P <- fromJSON("protocol_v3.json")
+source("R/01_prepare.R")   # locked; sets SEED, loads haven/dplyr
+source("R/03_omega.R")     # locked; ml_omega, SC_items, EE_items, PS_items (lavaan loaded)
+set.seed(P$mcmc$seed)
+
+# Captures every warning (message text) while evaluating expr; warn=1 also prints them to the log.
+with_warn <- function(expr) {
+  w <- character(0)
+  val <- withCallingHandlers(expr, warning = function(c) { w <<- c(w, conditionMessage(c)) })
+  list(value = val, warnings = w)
+}
+
+# Verbatim copy of ml_omega()'s model syntax + call (R/03_omega.R), returning the fit.
+# std_lv = TRUE gives the std.lv cross-check refit (factor variances fixed to 1); default = locked call.
+fit_ml <- function(dat, items, cluster = "ID", std_lv = FALSE) {
+  f <- paste("f =~", paste(items, collapse = " + "))
+  m <- paste0("level: 1\n", sub("f", "fw", f), "\nlevel: 2\n", sub("f", "fb", f))
+  # C9 (Plumber decision a): tightened optimizer, identical for marker and std.lv fits in every window/item set
+  if (std_lv) sem(m, data = dat, cluster = cluster, estimator = "MLR", missing = "ml", std.lv = TRUE, control = list(rel.tol = 1e-12))
+  else sem(m, data = dat, cluster = cluster, estimator = "MLR", missing = "ml", control = list(rel.tol = 1e-12))
+}
+# Verbatim copy of ml_omega()'s omega formula (UNCORRECTED: omits psi under marker identification).
+# Under std.lv = TRUE (psi = 1) the same formula is the correct omega, used as the cross-check.
+omega_from_fit <- function(fit, items) {
+  pe <- parameterEstimates(fit)
+  om <- function(lv, lev) {
+    l <- pe$est[pe$lhs == lv & pe$op == "=~"]
+    th <- pe$est[pe$op == "~~" & pe$lhs %in% items & pe$lhs == pe$rhs & pe$level == lev]
+    sum(l)^2 / (sum(l)^2 + sum(th))
+  }
+  c(omega_within = om("fw", 1), omega_between = om("fb", 2))
+}
+
+# Corrected omega (Geldhof, Preacher & Zyphur 2014): (sum l)^2 * psi / ((sum l)^2 * psi + sum theta), per level.
+psi_of <- function(pe, lv) { v <- pe$est[pe$lhs == lv & pe$op == "~~" & pe$rhs == lv]; stopifnot(length(v) == 1); v }
+omega_corrected <- function(fit, items) {
+  pe <- parameterEstimates(fit)
+  om <- function(lv, lev) {
+    l <- pe$est[pe$lhs == lv & pe$op == "=~"]
+    th <- pe$est[pe$op == "~~" & pe$lhs %in% items & pe$lhs == pe$rhs & pe$level == lev]
+    psi <- psi_of(pe, lv)
+    sum(l)^2 * psi / (sum(l)^2 * psi + sum(th))
+  }
+  list(omega = c(omega_within = om("fw", 1), omega_between = om("fb", 2)),
+       psi = c(within = psi_of(pe, "fw"), between = psi_of(pe, "fb")))
+}
+
+# PROPOSED (author: Blacksmith; requested by Plumber after run3 failed at the std.lv check): before the unchanged 1e-6 stopifnot, print and record the
+# max abs gap and lavInspect converged/post.check for the marker and std.lv fits; a partial omega_v3_diag.json is
+# rewritten after each item set so the values survive if the stopifnot halts.
+PARTIAL <- list(); PARTIAL_OUT <- "results/omega_v3_diag.json"
+diag_model <- function(d, items, tag = paste(items, collapse = ",")) {
+  r <- with_warn(fit_ml(d, items)); fit <- r$value
+  pc <- with_warn(lavInspect(fit, "post.check"))
+  om <- omega_from_fit(fit, items)
+  ref <- with_warn(ml_omega(d, items))   # locked function's own output
+  stopifnot(isTRUE(all.equal(unname(om), unname(ref$value), tolerance = 0)))
+  oc <- omega_corrected(fit, items)
+  est <- lavInspect(fit, "est")
+  psi_inspect <- lapply(est, function(e) unname(diag(e$psi)))   # per-level psi from lavInspect, recorded as a check
+  rs <- with_warn(fit_ml(d, items, std_lv = TRUE))
+  om_stdlv <- omega_from_fit(rs$value, items)
+  gap <- max(abs(unname(om_stdlv) - unname(oc$omega)))
+  chk <- list(tag = tag, max_abs_gap = gap, tolerance = 1e-6, passes = isTRUE(gap < 1e-6),
+              omega_corrected = as.list(oc$omega), omega_stdlv_crosscheck = as.list(om_stdlv),
+              marker_converged = lavInspect(fit, "converged"), marker_post_check = pc$value,
+              stdlv_converged = lavInspect(rs$value, "converged"),
+              marker_iterations = lavInspect(fit, "iterations"), stdlv_iterations = lavInspect(rs$value, "iterations"),
+              marker_conv_code = fit@optim$converged, marker_optim_code = if (!is.null(fit@optim$x)) attr(fit@optim$x, "convergence") else NA,
+              stdlv_conv_code = rs$value@optim$converged, stdlv_optim_code = if (!is.null(rs$value@optim$x)) attr(rs$value@optim$x, "convergence") else NA,
+              optimizer_control = "rel.tol=1e-12",
+              stdlv_post_check = with_warn(lavInspect(rs$value, "post.check"))$value)
+  cat("[gap check]", tag, "| max_abs_gap:", format(gap, digits = 10), "| marker converged:", chk$marker_converged,
+      "post.check:", chk$marker_post_check, "| std.lv converged:", chk$stdlv_converged, "post.check:", chk$stdlv_post_check, "| iter marker/stdlv:", chk$marker_iterations, "/", chk$stdlv_iterations, "\n")
+  PARTIAL[[tag]] <<- chk
+  dir.create(dirname(PARTIAL_OUT), showWarnings = FALSE)
+  write_json(list(status = "PARTIAL (gap checks so far; final file overwrites this)", checks = unname(PARTIAL)),
+             PARTIAL_OUT, auto_unbox = TRUE, digits = NA, pretty = TRUE, null = "null")
+  stopifnot(max(abs(unname(om_stdlv) - unname(oc$omega))) < 1e-6)
+  pe <- parameterEstimates(fit); st <- standardizedSolution(fit)
+  resv <- pe[pe$op == "~~" & pe$lhs %in% items & pe$lhs == pe$rhs, c("lhs", "level", "est")]
+  lev <- function(x, k) x[x$level == k, , drop = FALSE]
+  tab <- function(x, cols) lapply(split(x[cols], seq_len(nrow(x))), as.list) |> unname()
+  sl <- st[st$op == "=~", c("lhs", "rhs", "level", "est.std")]
+  sr <- st[st$op == "~~" & st$lhs %in% items & st$lhs == st$rhs, c("lhs", "level", "est.std")]
+  list(omega_locked_formula_UNCORRECTED = as.list(om), omega_locked_equals_ml_omega_tol0 = TRUE,
+       omega_corrected = as.list(oc$omega), omega_stdlv_crosscheck = as.list(om_stdlv),
+       corrected_matches_stdlv_1e6 = TRUE, psi = as.list(oc$psi), psi_lavInspect_est = psi_inspect,
+       converged_stdlv = lavInspect(rs$value, "converged"), warnings_stdlv_refit = rs$warnings,
+       converged = lavInspect(fit, "converged"), post_check = pc$value,
+       nonpos_resid_var_within = resv$lhs[resv$level == 1 & resv$est <= 0],
+       nonpos_resid_var_between = resv$lhs[resv$level == 2 & resv$est <= 0],
+       resid_var_raw = list(within = tab(lev(resv, 1), c("lhs", "est")), between = tab(lev(resv, 2), c("lhs", "est"))),
+       std_loadings = list(within = tab(lev(sl, 1), c("rhs", "est.std")), between = tab(lev(sl, 2), c("rhs", "est.std"))),
+       std_resid_var = list(within = tab(lev(sr, 1), c("lhs", "est.std")), between = tab(lev(sr, 2), c("lhs", "est.std"))),
+       warnings = c(r$warnings, pc$warnings), warnings_ml_omega_refit = ref$warnings)
+}
+
+main <- function(days_path, out = "results/omega_v3_diag.json") {
+  cat("start:", format(Sys.time(), "%Y-%m-%d %H:%M:%S %Z"), "\n")
+  sha <- digest(file = days_path, algo = "sha256")
+  cat("days.sav sha256:", sha, "\n")
+  if (!identical(sha, P$data$days_sha256)) stop("days.sav sha256 does not match protocol_v3.json; aborting")
+  days <- haven::read_sav(days_path)
+  # Window 1 (primary): Period 2 analysis window, exactly as the v3 fit.
+  w <- as.data.frame(prepare_days(days, "previous_day"))
+  # Window 2: all 28 diary days, raw items, no Period filter, no lag/lead (same-day item structure).
+  a28 <- days |> dplyr::mutate(dplyr::across(dplyr::everything(), ~ as.numeric(haven::zap_labels(.x)))) |>
+    dplyr::arrange(ID, time) |> as.data.frame()
+  for (nm in c("w", "a28")) {
+    miss <- setdiff(c("ID", SC_items, EE_items), names(get(nm)))
+    if (length(miss)) stop(nm, ": missing item columns: ", paste(miss, collapse = ", "))
+  }
+  win <- function(d, label) list(label = label, n_rows = nrow(d), n_clusters = length(unique(d$ID)),
+                                 SC = diag_model(d, SC_items, paste(label, "| SC")), EE = diag_model(d, EE_items, paste(label, "| EE")))
+  res <- list(
+    date = format(Sys.time(), "%Y-%m-%d %H:%M:%S %Z"), seed = P$mcmc$seed, days_sha256 = sha,
+    estimator = "lavaan two-level CFA, MLR, missing=ml (syntax identical to R/03_omega.R ml_omega)",
+    period2_primary = win(w, "Period 2 (time 7-20), prepare_days(previous_day)"),
+    all28_days = win(a28, "all 28 diary days, raw items, no Period filter, no lag"),
+    PS = "descriptive only per R/03_omega.R; not computed",
+    lavaan_version = as.character(packageVersion("lavaan")))
+  dir.create(dirname(out), showWarnings = FALSE)
+  write_json(res, out, auto_unbox = TRUE, digits = NA, pretty = TRUE, null = "null")
+  str(res, max.level = 4)
+  print(sessionInfo())
+  cat("cmdstan_version:", tryCatch(as.character(cmdstanr::cmdstan_version()), error = function(e) paste("unavailable:", conditionMessage(e))), "\n")
+  cat("end:", format(Sys.time(), "%Y-%m-%d %H:%M:%S %Z"), "\n")
+}
+if (sys.nframe() == 0) { a <- commandArgs(TRUE); main(a[1]) }

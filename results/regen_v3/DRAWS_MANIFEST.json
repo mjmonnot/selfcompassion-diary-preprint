@@ -1,0 +1,204 @@
+{
+  "created": "2026-10-24 13:19:35 PDT",
+  "seed": 20261024,
+  "days_sha256": "9304c468438bbd1d301d4405c9a4a4096d59b019abd04e6a9b26766a44e1acb4",
+  "n_fits_dirs": 12,
+  "files": [
+    {
+      "file": "results/regen_v3/draws/H1_primary/dsem_meditation-202610241306-1-8786d2.csv",
+      "sha256": "3d51417035c61301e8804a4a4dc06113c9ab0735eed5d44dda6e27e465613468"
+    },
+    {
+      "file": "results/regen_v3/draws/H1_primary/dsem_meditation-202610241306-2-8786d2.csv",
+      "sha256": "4f52a95eb59cbcb4f5ac1e560b6460a059e807988de4c0d1f290466cfcb9e345"
+    },
+    {
+      "file": "results/regen_v3/draws/H1_primary/dsem_meditation-202610241306-3-8786d2.csv",
+      "sha256": "d89493da218cabda8f97cba0be630a66f9ef80f1d9f9c267d864eb9afb187553"
+    },
+    {
+      "file": "results/regen_v3/draws/H1_primary/dsem_meditation-202610241306-4-8786d2.csv",
+      "sha256": "66a96ce1b8b2ba5a3ecbc5604f34a39a69969d6afb1e905334fc347d830f9294"
+    },
+    {
+      "file": "results/regen_v3/draws/H2_secondary/dsem_meditation-202610241307-1-83676b.csv",
+      "sha256": "59f3a24097db0c721ed81b1806f507c31a6dbe1a333e06277091037149bcd477"
+    },
+    {
+      "file": "results/regen_v3/draws/H2_secondary/dsem_meditation-202610241307-2-83676b.csv",
+      "sha256": "f31a48bfe8011ccf1d76a654e4dabce4427c18ae497d723198f0edda850776b3"
+    },
+    {
+      "file": "results/regen_v3/draws/H2_secondary/dsem_meditation-202610241307-3-83676b.csv",
+      "sha256": "4118b25f7480950365133733c1d9d64550e8acaaf3fa4516bb3f5295b7ddd0b0"
+    },
+    {
+      "file": "results/regen_v3/draws/H2_secondary/dsem_meditation-202610241307-4-83676b.csv",
+      "sha256": "540c8aeabfc771d941f6df94ceaea685d233a5ae6ed759e9bf1f1f53d8abe7bb"
+    },
+    {
+      "file": "results/regen_v3/draws/S1_prior_x05/dsem_meditation-202610241309-1-3f6e0e.csv",
+      "sha256": "f45cec88b25e957cf25bb4f24a4df86c7baeaa6c2f83c3171f7e4aec16f954f5"
+    },
+    {
+      "file": "results/regen_v3/draws/S1_prior_x05/dsem_meditation-202610241309-2-3f6e0e.csv",
+      "sha256": "8ef5356dc519c97be697378f70f5ed65a73c04b0d4caf2226fb1ca9ff90be19e"
+    },
+    {
+      "file": "results/regen_v3/draws/S1_prior_x05/dsem_meditation-202610241309-3-3f6e0e.csv",
+      "sha256": "8840ce699703e076aa1bac5e8067ea0c8efddf951ad350e655c40eced21bac69"
+    },
+    {
+      "file": "results/regen_v3/draws/S1_prior_x05/dsem_meditation-202610241309-4-3f6e0e.csv",
+      "sha256": "c61053a913432f69f7fee8c57994e39b36cccd015acc6958a5ba8f235b22dc53"
+    },
+    {
+      "file": "results/regen_v3/draws/S1_prior_x2/dsem_meditation-202610241308-1-848ba4.csv",
+      "sha256": "f8853cd3388017986b060481ecd6504f6049cf8978ebcf4016bf0e2ce5cd892f"
+    },
+    {
+      "file": "results/regen_v3/draws/S1_prior_x2/dsem_meditation-202610241308-2-848ba4.csv",
+      "sha256": "e4d6864cf42665985385e43e7c9e545eb62c0a4dc3bd8358e7aca311110f282f"
+    },
+    {
+      "file": "results/regen_v3/draws/S1_prior_x2/dsem_meditation-202610241308-3-848ba4.csv",
+      "sha256": "dcc6d7ba31f2569647be5046a49377e73622e085451a5b9a5adfe1c16e632c02"
+    },
+    {
+      "file": "results/regen_v3/draws/S1_prior_x2/dsem_meditation-202610241308-4-848ba4.csv",
+      "sha256": "05047067ebad1ab79cf51c66a7c8493be9a4746d25a89371eb5dc8748c567020"
+    },
+    {
+      "file": "results/regen_v3/draws/S2_same_row/dsem_meditation-202610241310-1-4d9e39.csv",
+      "sha256": "42a31a9eae524fbbf97b414dc2f48a603832e7d55298c20659c90f20481fbbe9"
+    },
+    {
+      "file": "results/regen_v3/draws/S2_same_row/dsem_meditation-202610241310-2-4d9e39.csv",
+      "sha256": "0e1bfa5528f08fa47c985f668851863ce8cd81d460d15ed5579ef582cf7e707d"
+    },
+    {
+      "file": "results/regen_v3/draws/S2_same_row/dsem_meditation-202610241310-3-4d9e39.csv",
+      "sha256": "4a2e462167230456603195b9cb0eb2f153cb928cf18d52877ee0bbf25f68559f"
+    },
+    {
+      "file": "results/regen_v3/draws/S2_same_row/dsem_meditation-202610241310-4-4d9e39.csv",
+      "sha256": "2df0a455192cde2faf644e4e26ce0fbf3b0453c3468387848e4ff5a5fd80fdd6"
+    },
+    {
+      "file": "results/regen_v3/draws/S3_pmm_m025/dsem_meditation-202610241311-1-800af9.csv",
+      "sha256": "5300bbd3df1d8bc3688aa79239099bfaf55488eddaf42af6fbf9aef3972cefb5"
+    },
+    {
+      "file": "results/regen_v3/draws/S3_pmm_m025/dsem_meditation-202610241311-2-800af9.csv",
+      "sha256": "848ff6e03a73e5e60c5eae605a6de71dd5d937bc132d061cde36328d85c96e44"
+    },
+    {
+      "file": "results/regen_v3/draws/S3_pmm_m025/dsem_meditation-202610241311-3-800af9.csv",
+      "sha256": "9174e791990c7c767365e48db0676b2b94f5e488fc17694512442ccfb508ccaa"
+    },
+    {
+      "file": "results/regen_v3/draws/S3_pmm_m025/dsem_meditation-202610241311-4-800af9.csv",
+      "sha256": "571a995c768b9cb843be7bd05ca1724ee107ac8f1f5718752cef7324da41f52e"
+    },
+    {
+      "file": "results/regen_v3/draws/S3_pmm_m050/dsem_meditation-202610241312-1-758c31.csv",
+      "sha256": "2d5df11419803567e40ba180ee7be31f158fe21b6f3faff0025e5cb48e95dc8b"
+    },
+    {
+      "file": "results/regen_v3/draws/S3_pmm_m050/dsem_meditation-202610241312-2-758c31.csv",
+      "sha256": "0042ea2bd1ccdd1de60c64d64fbb180683d9b25a65967aa8227bef731c6aecb9"
+    },
+    {
+      "file": "results/regen_v3/draws/S3_pmm_m050/dsem_meditation-202610241312-3-758c31.csv",
+      "sha256": "643fc0fb2d4cea1dc9af4de7f87e7cc64e7e457684bc2e2f935dfa41e874ca60"
+    },
+    {
+      "file": "results/regen_v3/draws/S3_pmm_m050/dsem_meditation-202610241312-4-758c31.csv",
+      "sha256": "7aec0ded98b14ff951c35e01c9c0511f3b6282a49121c6aeecdb658bcd630771"
+    },
+    {
+      "file": "results/regen_v3/draws/S4_H2_pmm_p050/dsem_meditation-202610241315-1-35d418.csv",
+      "sha256": "5a05cba4affb0676bc6ed25ab1fa75ff7a535480bca27f25cd7d41d8818761af"
+    },
+    {
+      "file": "results/regen_v3/draws/S4_H2_pmm_p050/dsem_meditation-202610241315-2-35d418.csv",
+      "sha256": "40f8bded27499b6c99756ad2923afd87c901a3c4a22ca33ccd4fb9d5020aac01"
+    },
+    {
+      "file": "results/regen_v3/draws/S4_H2_pmm_p050/dsem_meditation-202610241315-3-35d418.csv",
+      "sha256": "ebf39150bfd39c7c22bae572e91ea7ffdb2323677324205ed12d51f526bbe560"
+    },
+    {
+      "file": "results/regen_v3/draws/S4_H2_pmm_p050/dsem_meditation-202610241315-4-35d418.csv",
+      "sha256": "ca64ea4b87fa590883d7317bb0062381a640443bf762a9e4df826e76d6b0f677"
+    },
+    {
+      "file": "results/regen_v3/draws/S4_H2_prior_x05/dsem_meditation-202610241314-1-1225e7.csv",
+      "sha256": "56ea2bcde18cf9a57709d2ea403920f99adf79c6a1981b452a9fbc3182a05b18"
+    },
+    {
+      "file": "results/regen_v3/draws/S4_H2_prior_x05/dsem_meditation-202610241314-2-1225e7.csv",
+      "sha256": "180d329e66993ebda06ce8008fd938df1ab54732800225740ee8507198c86e7b"
+    },
+    {
+      "file": "results/regen_v3/draws/S4_H2_prior_x05/dsem_meditation-202610241314-3-1225e7.csv",
+      "sha256": "71652e370a8629b35797c1401b24da09ee7db964f71629497aa6fa41770cc67a"
+    },
+    {
+      "file": "results/regen_v3/draws/S4_H2_prior_x05/dsem_meditation-202610241314-4-1225e7.csv",
+      "sha256": "81cd67b2e49b63bfb376d76bae1f8890c4b53151e8726fc75a39e49373164a2f"
+    },
+    {
+      "file": "results/regen_v3/draws/S4_H2_prior_x2/dsem_meditation-202610241313-1-85ebb3.csv",
+      "sha256": "6e248a89a3dbb06d95f4265be52cb3a83c23a6b86f6d814ec41443d40e78195e"
+    },
+    {
+      "file": "results/regen_v3/draws/S4_H2_prior_x2/dsem_meditation-202610241313-2-85ebb3.csv",
+      "sha256": "1f24532d372261c58a0426d018385e96a8397cb039d748000b1b212cfaed2039"
+    },
+    {
+      "file": "results/regen_v3/draws/S4_H2_prior_x2/dsem_meditation-202610241313-3-85ebb3.csv",
+      "sha256": "6c600a6d911f24453563ae8d3dfc46066f15c3c834994d2cdb4f36b59715c6a0"
+    },
+    {
+      "file": "results/regen_v3/draws/S4_H2_prior_x2/dsem_meditation-202610241313-4-85ebb3.csv",
+      "sha256": "7585d817481c8ce281f80c8da0d54bf41b2538b98d2e4b23378795f08d328af9"
+    },
+    {
+      "file": "results/regen_v3/draws/S4_H2_same_row/dsem_meditation-202610241314-1-819d12.csv",
+      "sha256": "3d53f32555c3bf19d9fed079e663885601a04d9f73b68f9204b77571651a58c3"
+    },
+    {
+      "file": "results/regen_v3/draws/S4_H2_same_row/dsem_meditation-202610241314-2-819d12.csv",
+      "sha256": "e2354dfb5e4dcf9537309550658de1ac15a9c0343178fe573e33ada6551ee85f"
+    },
+    {
+      "file": "results/regen_v3/draws/S4_H2_same_row/dsem_meditation-202610241314-3-819d12.csv",
+      "sha256": "9348050e5637d1dc541a945e9b2b5b9755c98fce3d7527ae163d042c3ad153b1"
+    },
+    {
+      "file": "results/regen_v3/draws/S4_H2_same_row/dsem_meditation-202610241314-4-819d12.csv",
+      "sha256": "73d6add33a9ffdf0413d27550d9b189627c2c820c6ed80e0cde3ca58a34bc1f3"
+    },
+    {
+      "file": "results/regen_v3/draws/S5/dsem_meditation-202610241316-1-140a86.csv",
+      "sha256": "0011f52f25d4627dd19faddbba14b1ee422ad578dcae6e0260ae26a2be01825b"
+    },
+    {
+      "file": "results/regen_v3/draws/S5/dsem_meditation-202610241316-2-140a86.csv",
+      "sha256": "cc0aa8290a4571835033263c45565a2ac3df5475b1ca688de1baa4f1c4f7ea11"
+    },
+    {
+      "file": "results/regen_v3/draws/S5/dsem_meditation-202610241316-3-140a86.csv",
+      "sha256": "8b2e6eab6f3f42e48adc0e4e88ef821322adaaa91e7f936495f2807697504497"
+    },
+    {
+      "file": "results/regen_v3/draws/S5/dsem_meditation-202610241316-4-140a86.csv",
+      "sha256": "c8cbda5fcd396d531ab88b47e2003cba779a7e1fcb3b93bde858a8b17f9b5085"
+    },
+    {
+      "file": "results/regen_v3/draws/S6_observed_centering_brmsfit.rds",
+      "sha256": "2c12ee928c4b18c321d3783b083cbf55df12b84d702a2a3499f16090fd10dd71"
+    }
+  ]
+}

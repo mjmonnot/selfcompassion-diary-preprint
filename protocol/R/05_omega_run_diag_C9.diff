@@ -1,0 +1,29 @@
+--- 05_omega_run_diag.R	2026-10-24 13:25:10.982930356 -0700
++++ 05_omega_run_diag.R.proposed	2026-10-24 13:31:00.118930356 -0700
+@@ -25,8 +25,9 @@
+ fit_ml <- function(dat, items, cluster = "ID", std_lv = FALSE) {
+   f <- paste("f =~", paste(items, collapse = " + "))
+   m <- paste0("level: 1\n", sub("f", "fw", f), "\nlevel: 2\n", sub("f", "fb", f))
+-  if (std_lv) sem(m, data = dat, cluster = cluster, estimator = "MLR", missing = "ml", std.lv = TRUE)
+-  else sem(m, data = dat, cluster = cluster, estimator = "MLR", missing = "ml")
++  # C9 (Plumber decision a): tightened optimizer, identical for marker and std.lv fits in every window/item set
++  if (std_lv) sem(m, data = dat, cluster = cluster, estimator = "MLR", missing = "ml", std.lv = TRUE, control = list(rel.tol = 1e-12))
++  else sem(m, data = dat, cluster = cluster, estimator = "MLR", missing = "ml", control = list(rel.tol = 1e-12))
+ }
+ # Verbatim copy of ml_omega()'s omega formula (UNCORRECTED: omits psi under marker identification).
+ # Under std.lv = TRUE (psi = 1) the same formula is the correct omega, used as the cross-check.
+@@ -74,9 +75,13 @@
+               omega_corrected = as.list(oc$omega), omega_stdlv_crosscheck = as.list(om_stdlv),
+               marker_converged = lavInspect(fit, "converged"), marker_post_check = pc$value,
+               stdlv_converged = lavInspect(rs$value, "converged"),
++              marker_iterations = lavInspect(fit, "iterations"), stdlv_iterations = lavInspect(rs$value, "iterations"),
++              marker_conv_code = fit@optim$converged, marker_optim_code = if (!is.null(fit@optim$x)) attr(fit@optim$x, "convergence") else NA,
++              stdlv_conv_code = rs$value@optim$converged, stdlv_optim_code = if (!is.null(rs$value@optim$x)) attr(rs$value@optim$x, "convergence") else NA,
++              optimizer_control = "rel.tol=1e-12",
+               stdlv_post_check = with_warn(lavInspect(rs$value, "post.check"))$value)
+   cat("[gap check]", tag, "| max_abs_gap:", format(gap, digits = 10), "| marker converged:", chk$marker_converged,
+-      "post.check:", chk$marker_post_check, "| std.lv converged:", chk$stdlv_converged, "post.check:", chk$stdlv_post_check, "\n")
++      "post.check:", chk$marker_post_check, "| std.lv converged:", chk$stdlv_converged, "post.check:", chk$stdlv_post_check, "| iter marker/stdlv:", chk$marker_iterations, "/", chk$stdlv_iterations, "\n")
+   PARTIAL[[tag]] <<- chk
+   dir.create(dirname(PARTIAL_OUT), showWarnings = FALSE)
+   write_json(list(status = "PARTIAL (gap checks so far; final file overwrites this)", checks = unname(PARTIAL)),

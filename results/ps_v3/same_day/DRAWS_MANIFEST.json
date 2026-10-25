@@ -1,0 +1,23 @@
+{
+  "created": "2026-10-24 13:20:41 PDT",
+  "seed": 20261024,
+  "days_sha256": "9304c468438bbd1d301d4405c9a4a4096d59b019abd04e6a9b26766a44e1acb4",
+  "files": [
+    {
+      "file": "results/ps_v3/same_day/draws/dsem_meditation-202610241319-1-87ccc4.csv",
+      "sha256": "322e65b4b8260295604a564956302633655a5fdbbc10f10a0704c5d9259caf03"
+    },
+    {
+      "file": "results/ps_v3/same_day/draws/dsem_meditation-202610241319-2-87ccc4.csv",
+      "sha256": "2068c4e1e0e3f54c052ac8b13a2711701f13d1164a15c7b7f3a4ef6cfd7b3aa1"
+    },
+    {
+      "file": "results/ps_v3/same_day/draws/dsem_meditation-202610241319-3-87ccc4.csv",
+      "sha256": "0a63c4aae61444cf69d34c0afa3ae2ebf65e4424d449b084cae7d8a5089b67ca"
+    },
+    {
+      "file": "results/ps_v3/same_day/draws/dsem_meditation-202610241319-4-87ccc4.csv",
+      "sha256": "de656b519ce5b677dbe65ea9c5567118c5e35446640236dbe15a25800b9b8d1c"
+    }
+  ]
+}

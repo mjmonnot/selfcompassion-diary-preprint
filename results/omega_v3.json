@@ -1,0 +1,34 @@
+{
+  "date": "2026-10-24 12:36:53 PDT",
+  "seed": 20261024,
+  "days_sha256": "9304c468438bbd1d301d4405c9a4a4096d59b019abd04e6a9b26766a44e1acb4",
+  "estimator": "lavaan two-level CFA, MLR, missing=ml",
+  "period2_primary": {
+    "label": "Period 2 (time 7-20), prepare_days(previous_day)",
+    "n_rows": 910,
+    "n_clusters": 65,
+    "SC": {
+      "omega_within": 0.986134384898524,
+      "omega_between": 0.911906462980606
+    },
+    "EE": {
+      "omega_within": 0.967033904446424,
+      "omega_between": 0.973163589050397
+    }
+  },
+  "all28_days": {
+    "label": "all 28 diary days, raw items, no Period filter, no lag",
+    "n_rows": 1820,
+    "n_clusters": 65,
+    "SC": {
+      "omega_within": 0.980478937957299,
+      "omega_between": 0.911423331914137
+    },
+    "EE": {
+      "omega_within": 0.961441018964735,
+      "omega_between": 0.975508750184995
+    }
+  },
+  "PS": "descriptive only per R/03_omega.R; not computed",
+  "lavaan_version": "0.7.3"
+}

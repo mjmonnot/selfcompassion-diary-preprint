@@ -1,0 +1,43 @@
+--- 05_omega_run_diag.R	2026-10-24 12:41:13.534930356 -0700
++++ 05_omega_run_diag.R.proposed	2026-10-24 13:25:10.982930356 -0700
+@@ -54,7 +54,11 @@
+        psi = c(within = psi_of(pe, "fw"), between = psi_of(pe, "fb")))
+ }
+ 
+-diag_model <- function(d, items) {
++# PROPOSED (author: Blacksmith; requested by Plumber after run3 failed at the std.lv check): before the unchanged 1e-6 stopifnot, print and record the
++# max abs gap and lavInspect converged/post.check for the marker and std.lv fits; a partial omega_v3_diag.json is
++# rewritten after each item set so the values survive if the stopifnot halts.
++PARTIAL <- list(); PARTIAL_OUT <- "results/omega_v3_diag.json"
++diag_model <- function(d, items, tag = paste(items, collapse = ",")) {
+   r <- with_warn(fit_ml(d, items)); fit <- r$value
+   pc <- with_warn(lavInspect(fit, "post.check"))
+   om <- omega_from_fit(fit, items)
+@@ -65,6 +69,18 @@
+   psi_inspect <- lapply(est, function(e) unname(diag(e$psi)))   # per-level psi from lavInspect, recorded as a check
+   rs <- with_warn(fit_ml(d, items, std_lv = TRUE))
+   om_stdlv <- omega_from_fit(rs$value, items)
++  gap <- max(abs(unname(om_stdlv) - unname(oc$omega)))
++  chk <- list(tag = tag, max_abs_gap = gap, tolerance = 1e-6, passes = isTRUE(gap < 1e-6),
++              omega_corrected = as.list(oc$omega), omega_stdlv_crosscheck = as.list(om_stdlv),
++              marker_converged = lavInspect(fit, "converged"), marker_post_check = pc$value,
++              stdlv_converged = lavInspect(rs$value, "converged"),
++              stdlv_post_check = with_warn(lavInspect(rs$value, "post.check"))$value)
++  cat("[gap check]", tag, "| max_abs_gap:", format(gap, digits = 10), "| marker converged:", chk$marker_converged,
++      "post.check:", chk$marker_post_check, "| std.lv converged:", chk$stdlv_converged, "post.check:", chk$stdlv_post_check, "\n")
++  PARTIAL[[tag]] <<- chk
++  dir.create(dirname(PARTIAL_OUT), showWarnings = FALSE)
++  write_json(list(status = "PARTIAL (gap checks so far; final file overwrites this)", checks = unname(PARTIAL)),
++             PARTIAL_OUT, auto_unbox = TRUE, digits = NA, pretty = TRUE, null = "null")
+   stopifnot(max(abs(unname(om_stdlv) - unname(oc$omega))) < 1e-6)
+   pe <- parameterEstimates(fit); st <- standardizedSolution(fit)
+   resv <- pe[pe$op == "~~" & pe$lhs %in% items & pe$lhs == pe$rhs, c("lhs", "level", "est")]
+@@ -101,7 +117,7 @@
+     if (length(miss)) stop(nm, ": missing item columns: ", paste(miss, collapse = ", "))
+   }
+   win <- function(d, label) list(label = label, n_rows = nrow(d), n_clusters = length(unique(d$ID)),
+-                                 SC = diag_model(d, SC_items), EE = diag_model(d, EE_items))
++                                 SC = diag_model(d, SC_items, paste(label, "| SC")), EE = diag_model(d, EE_items, paste(label, "| EE")))
+   res <- list(
+     date = format(Sys.time(), "%Y-%m-%d %H:%M:%S %Z"), seed = P$mcmc$seed, days_sha256 = sha,
+     estimator = "lavaan two-level CFA, MLR, missing=ml (syntax identical to R/03_omega.R ml_omega)",
