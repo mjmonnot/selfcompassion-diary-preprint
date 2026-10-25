@@ -1,0 +1,112 @@
+start: 2026-10-24 16:15:43 PDT 
+days.sav sha256: 9304c468438bbd1d301d4405c9a4a4096d59b019abd04e6a9b26766a44e1acb4 
+Warning: lavaan->lav_data_full():  
+   Level-1 variable “SC1” has no variance within some clusters . The cluster 
+   ids with zero within variance are: 7, 9, 12, 15, 16, 18, 23, 25, 30, 33, 
+   35, 36, 37, 38, 43, 61, 67, 68, 70, 71, 72, 73, 79, 80, 86, 87, 90, 93.
+Warning: lavaan->lav_data_full():  
+   Level-1 variable “rSC2” has no variance within some clusters . The cluster 
+   ids with zero within variance are: 2, 7, 12, 13, 23, 25, 26, 30, 33, 61, 
+   72, 79, 87, 90, 91.
+Warning: lavaan->lav_data_full():  
+   Level-1 variable “SC3” has no variance within some clusters . The cluster 
+   ids with zero within variance are: 2, 3, 6, 7, 9, 12, 13, 18, 23, 25, 26, 
+   30, 33, 34, 36, 37, 38, 57, 60, 61, 62, 63, 70, 72, 74, 76, 79, 80, 86, 
+   87, 90, 91.
+Warning: lavaan->lav_data_full():  
+   Level-1 variable “rSC4” has no variance within some clusters . The cluster 
+   ids with zero within variance are: 7, 8, 12, 14, 23, 26, 30, 33, 35, 37, 
+   38, 67, 72, 79, 87, 90, 93.
+Warning: lavaan->lav_data_full():  
+   Level-1 variable “SC5” has no variance within some clusters . The cluster 
+   ids with zero within variance are: 2, 6, 7, 9, 12, 14, 15, 16, 23, 26, 30, 
+   33, 35, 36, 61, 70, 72, 79, 80, 87, 90, 91, 92, 95.
+Warning: lavaan->lav_data_full():  
+   Level-1 variable “rSC6” has no variance within some clusters . The cluster 
+   ids with zero within variance are: 2, 7, 12, 15, 18, 23, 25, 33, 35, 54, 
+   61, 87, 90, 93, 95.
+Warning: lavaan->lav_data_full():  
+   some cases are empty and will be ignored: 33 68 187 191 194 199 248 283 
+   286 307 332 398 401 402 403 407 409 412 413 430 463 471 475 476 497 500 
+   553 560 599 614 664 706 708 711 713 769 770 775 776 817 818 822 825 890 
+   891 901 906 907 908 909.
+Warning in log(det(sigma_w_1)) : NaNs produced
+Warning in log(det(sigma_w_1)) : NaNs produced
+Warning: lavaan->lav_step11_estoptim():  
+   the optimizer warns that a solution has NOT been found!
+Warning: lavaan->lav_object_fit_by_level():  
+   estimation of the partially saturated model for the within level failed.
+Warning: lavaan->lav_step11_estoptim():  
+   Model estimation FAILED! Returning starting values.
+Warning: lavaan->lav_object_fit_by_level():  
+   estimation of the partially saturated model for the between level failed.
+Warning: lavaan->lav_data_full():  
+   Level-1 variable “SC1” has no variance within some clusters . The cluster 
+   ids with zero within variance are: 7, 9, 12, 15, 16, 18, 23, 25, 30, 33, 
+   35, 36, 37, 38, 43, 61, 67, 68, 70, 71, 72, 73, 79, 80, 86, 87, 90, 93.
+Warning: lavaan->lav_data_full():  
+   Level-1 variable “rSC2” has no variance within some clusters . The cluster 
+   ids with zero within variance are: 2, 7, 12, 13, 23, 25, 26, 30, 33, 61, 
+   72, 79, 87, 90, 91.
+Warning: lavaan->lav_data_full():  
+   Level-1 variable “SC3” has no variance within some clusters . The cluster 
+   ids with zero within variance are: 2, 3, 6, 7, 9, 12, 13, 18, 23, 25, 26, 
+   30, 33, 34, 36, 37, 38, 57, 60, 61, 62, 63, 70, 72, 74, 76, 79, 80, 86, 
+   87, 90, 91.
+Warning: lavaan->lav_data_full():  
+   Level-1 variable “rSC4” has no variance within some clusters . The cluster 
+   ids with zero within variance are: 7, 8, 12, 14, 23, 26, 30, 33, 35, 37, 
+   38, 67, 72, 79, 87, 90, 93.
+Warning: lavaan->lav_data_full():  
+   Level-1 variable “SC5” has no variance within some clusters . The cluster 
+   ids with zero within variance are: 2, 6, 7, 9, 12, 14, 15, 16, 23, 26, 30, 
+   33, 35, 36, 61, 70, 72, 79, 80, 87, 90, 91, 92, 95.
+Warning: lavaan->lav_data_full():  
+   Level-1 variable “rSC6” has no variance within some clusters . The cluster 
+   ids with zero within variance are: 2, 7, 12, 15, 18, 23, 25, 33, 35, 54, 
+   61, 87, 90, 93, 95.
+Warning: lavaan->lav_data_full():  
+   some cases are empty and will be ignored: 33 68 187 191 194 199 248 283 
+   286 307 332 398 401 402 403 407 409 412 413 430 463 471 475 476 497 500 
+   553 560 599 614 664 706 708 711 713 769 770 775 776 817 818 822 825 890 
+   891 901 906 907 908 909.
+Warning in log(det(sigma_w_1)) : NaNs produced
+Warning: lavaan->lav_data_full():  
+   Level-1 variable “SC1” has no variance within some clusters . The cluster 
+   ids with zero within variance are: 7, 9, 12, 15, 16, 18, 23, 25, 30, 33, 
+   35, 36, 37, 38, 43, 61, 67, 68, 70, 71, 72, 73, 79, 80, 86, 87, 90, 93.
+Warning: lavaan->lav_data_full():  
+   Level-1 variable “rSC2” has no variance within some clusters . The cluster 
+   ids with zero within variance are: 2, 7, 12, 13, 23, 25, 26, 30, 33, 61, 
+   72, 79, 87, 90, 91.
+Warning: lavaan->lav_data_full():  
+   Level-1 variable “SC3” has no variance within some clusters . The cluster 
+   ids with zero within variance are: 2, 3, 6, 7, 9, 12, 13, 18, 23, 25, 26, 
+   30, 33, 34, 36, 37, 38, 57, 60, 61, 62, 63, 70, 72, 74, 76, 79, 80, 86, 
+   87, 90, 91.
+Warning: lavaan->lav_data_full():  
+   Level-1 variable “rSC4” has no variance within some clusters . The cluster 
+   ids with zero within variance are: 7, 8, 12, 14, 23, 26, 30, 33, 35, 37, 
+   38, 67, 72, 79, 87, 90, 93.
+Warning: lavaan->lav_data_full():  
+   Level-1 variable “SC5” has no variance within some clusters . The cluster 
+   ids with zero within variance are: 2, 6, 7, 9, 12, 14, 15, 16, 23, 26, 30, 
+   33, 35, 36, 61, 70, 72, 79, 80, 87, 90, 91, 92, 95.
+Warning: lavaan->lav_data_full():  
+   Level-1 variable “rSC6” has no variance within some clusters . The cluster 
+   ids with zero within variance are: 2, 7, 12, 15, 18, 23, 25, 33, 35, 54, 
+   61, 87, 90, 93, 95.
+Warning: lavaan->lav_data_full():  
+   some cases are empty and will be ignored: 33 68 187 191 194 199 248 283 
+   286 307 332 398 401 402 403 407 409 412 413 430 463 471 475 476 497 500 
+   553 560 599 614 664 706 708 711 713 769 770 775 776 817 818 822 825 890 
+   891 901 906 907 908 909.
+Warning: lavaan->lav_step11_estoptim():  
+   the optimizer warns that a solution has NOT been found!
+Warning: lavaan->lav_object_fit_by_level():  
+   estimation of the partially saturated model for the between level failed.
+[gap check] Period 2 (time 7-20), prepare_days(previous_day) | SC | max_abs_gap: 4.241410398e-06 | marker converged: TRUE post.check: TRUE | std.lv converged: TRUE post.check: TRUE | iter marker/stdlv: 2 / 2 
+Error in `[.data.frame`(st, st$op == "=~", c("lhs", "rhs", "level", "est.std")) : 
+  undefined columns selected
+Calls: main -> win -> diag_model -> [ -> [.data.frame
+Execution halted

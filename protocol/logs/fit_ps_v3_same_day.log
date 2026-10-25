@@ -1,0 +1,141 @@
+start: 2026-10-24 13:19:46 PDT 
+days.sav sha256: 9304c468438bbd1d301d4405c9a4a4096d59b019abd04e6a9b26766a44e1acb4 
+Running MCMC with 4 chains, at most 2 in parallel...
+
+Chain 1 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Chain 1 Exception: lkj_corr_cholesky_lpdf: Random variable[2] is 0, but must be positive! (in '<TMPDIR>/model-99fe9757f5a17.stan', line 47, column 2 to column 27)
+Chain 1 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+Chain 1 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+Chain 1 
+Chain 1 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Chain 1 Exception: lkj_corr_cholesky_lpdf: Random variable[2] is 0, but must be positive! (in '<TMPDIR>/model-99fe9757f5a17.stan', line 47, column 2 to column 27)
+Chain 1 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+Chain 1 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+Chain 1 
+Chain 1 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Chain 1 Exception: lkj_corr_cholesky_lpdf: Random variable[2] is 0, but must be positive! (in '<TMPDIR>/model-99fe9757f5a17.stan', line 47, column 2 to column 27)
+Chain 1 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+Chain 1 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+Chain 1 
+Chain 1 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Chain 1 Exception: lkj_corr_cholesky_lpdf: Random variable[2] is 0, but must be positive! (in '<TMPDIR>/model-99fe9757f5a17.stan', line 47, column 2 to column 27)
+Chain 1 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+Chain 1 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+Chain 1 
+Chain 1 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Chain 1 Exception: lkj_corr_cholesky_lpdf: Random variable[2] is 0, but must be positive! (in '<TMPDIR>/model-99fe9757f5a17.stan', line 47, column 2 to column 27)
+Chain 1 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+Chain 1 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+Chain 1 
+Chain 2 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Chain 2 Exception: lkj_corr_cholesky_lpdf: Random variable[2] is 0, but must be positive! (in '<TMPDIR>/model-99fe9757f5a17.stan', line 47, column 2 to column 27)
+Chain 2 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+Chain 2 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+Chain 2 
+Chain 2 finished in 25.6 seconds.
+Chain 3 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Chain 3 Exception: lkj_corr_cholesky_lpdf: Random variable[2] is 0, but must be positive! (in '<TMPDIR>/model-99fe9757f5a17.stan', line 47, column 2 to column 27)
+Chain 3 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+Chain 3 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+Chain 3 
+Chain 3 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Chain 3 Exception: lkj_corr_cholesky_lpdf: Random variable[2] is 0, but must be positive! (in '<TMPDIR>/model-99fe9757f5a17.stan', line 47, column 2 to column 27)
+Chain 3 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+Chain 3 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+Chain 3 
+Chain 3 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Chain 3 Exception: lkj_corr_cholesky_lpdf: Random variable[2] is 0, but must be positive! (in '<TMPDIR>/model-99fe9757f5a17.stan', line 47, column 2 to column 27)
+Chain 3 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+Chain 3 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+Chain 3 
+Chain 3 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Chain 3 Exception: lkj_corr_cholesky_lpdf: Random variable[2] is 0, but must be positive! (in '<TMPDIR>/model-99fe9757f5a17.stan', line 47, column 2 to column 27)
+Chain 3 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+Chain 3 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+Chain 3 
+Chain 1 finished in 26.3 seconds.
+Chain 4 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Chain 4 Exception: lkj_corr_cholesky_lpdf: Random variable[2] is 0, but must be positive! (in '<TMPDIR>/model-99fe9757f5a17.stan', line 47, column 2 to column 27)
+Chain 4 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+Chain 4 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+Chain 4 
+Chain 3 finished in 26.1 seconds.
+Chain 4 finished in 27.8 seconds.
+
+All 4 chains finished successfully.
+Mean chain execution time: 26.4 seconds.
+Total execution time: 54.3 seconds.
+
+List of 20
+ $ label             : chr "EXPLORATORY additional analysis; timing/sign set after H1/H2 results were known; not confirmatory"
+ $ spec              : chr "same_day"
+ $ window            : chr "Period 2, previous_day alignment"
+ $ sign_for_p_dir    : int -1
+ $ protocol_basis    : chr "protocol_v3.json additional_analyses: 'PS as outcome'"
+ $ n_persondays      : int 910
+ $ n_persons         : int 65
+ $ PS_missing        : int 50
+ $ treedepth_max_hits: int 0
+ $ max_treedepth     : int 12
+ $ converged         : logi TRUE
+ $ divergences       : num 0
+ $ sign              : int -1
+ $ median            : num -0.0973
+ $ ci95              : num [1:2] -0.2453 0.0561
+ $ ci90              : num [1:2] -0.222 0.032
+ $ p_pos             : num 0.105
+ $ p_neg             : num 0.895
+ $ p_dir             : num 0.895
+ $ p_beyond_band     : num 0.0912
+  variable        mean      median         sd        mad          q5        q95
+1 b_within -0.09646698 -0.09726424 0.07821288 0.07849813 -0.22238805 0.03197013
+2       b0 -0.09646698 -0.09726424 0.07821288 0.07849813 -0.22238805 0.03197013
+3        g -0.10655603 -0.10827320 0.44788831 0.46114796 -0.83749186 0.64644856
+4      phi  0.18267641  0.18195085 0.04247949 0.04284758  0.11332679 0.25307834
+5     sd_b  0.22704460  0.22771132 0.12931347 0.14413168  0.02330639 0.44330053
+6    sigma  0.66040859  0.66032650 0.01739054 0.01693717  0.63215184 0.68928522
+       rhat  ess_bulk ess_tail
+1 0.9998926 5582.0923 3441.622
+2 0.9998926 5582.0923 3441.622
+3 1.0013268 2571.9654 2823.900
+4 0.9999689 3571.3181 3286.695
+5 1.0087443  737.4786 1302.140
+6 1.0000955 4384.9544 3111.277
+R version 4.5.0 (2025-04-11)
+Platform: x86_64-pc-linux-gnu
+Running under: Debian GNU/Linux 13 (trixie)
+
+Matrix products: default
+BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.12.1 
+LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.12.1;  LAPACK version 3.12.0
+
+locale:
+ [1] LC_CTYPE=C.UTF-8       LC_NUMERIC=C           LC_TIME=C.UTF-8       
+ [4] LC_COLLATE=C.UTF-8     LC_MONETARY=C.UTF-8    LC_MESSAGES=C.UTF-8   
+ [7] LC_PAPER=C.UTF-8       LC_NAME=C              LC_ADDRESS=C          
+[10] LC_TELEPHONE=C         LC_MEASUREMENT=C.UTF-8 LC_IDENTIFICATION=C   
+
+time zone: America/Los_Angeles
+tzcode source: system (glibc)
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] dplyr_1.1.4     haven_2.5.4     posterior_1.6.1 cmdstanr_0.9.0 
+[5] digest_0.6.37   jsonlite_1.9.1 
+
+loaded via a namespace (and not attached):
+ [1] vctrs_0.6.5          cli_3.6.4            knitr_1.50          
+ [4] rlang_1.1.5          xfun_0.51            forcats_1.0.0       
+ [7] processx_3.8.6       generics_0.1.3       tensorA_0.36.2.1    
+[10] data.table_1.17.0    glue_1.8.0           backports_1.5.0     
+[13] distributional_0.5.0 ps_1.9.0             hms_1.1.3           
+[16] evaluate_1.0.3       tibble_3.2.1         abind_1.4-8         
+[19] tzdb_0.5.0           lifecycle_1.0.4      compiler_4.5.0      
+[22] pkgconfig_2.0.3      R6_2.6.1             readr_2.1.5         
+[25] tidyselect_1.2.1     pillar_1.10.1        magrittr_2.0.3      
+[28] checkmate_2.3.2      withr_3.0.2          tools_4.5.0         
+[31] matrixStats_1.5.0   
+cmdstan_version: 2.40.0 
+end: 2026-10-24 13:20:41 PDT 
