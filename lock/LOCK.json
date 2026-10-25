@@ -1,0 +1,194 @@
+{
+ "project": "SelfCompassion-Diary-APHW",
+ "version": "v3",
+ "source": "/workspace/forge/SelfCompassion-Diary-APHW/protocol/",
+ "lock_time_pt": "2026-10-24T11:55:30-07:00",
+ "files": [
+  {
+   "path": "PROTOCOL_DRAFT_v3.md",
+   "sha256": "4edf2177438c391cb076dd1adcf435c1dfed3a3bfd7ba3cb20c53931f164353a"
+  },
+  {
+   "path": "protocol_v3.json",
+   "sha256": "a5bf59c3447ecfbcb2d24771cb24735dfe8d8674b5558c2b29f12f514beaf85e"
+  },
+  {
+   "path": "CHANGES_v3.md",
+   "sha256": "00a394b564235809e54d64235ff8ec095cc9ca0706d92c5e301eb9213b02fb01"
+  },
+  {
+   "path": "R/02_fit_v3.R",
+   "sha256": "5e6c352e5de60a98baf066e2dd665ed036619317c3476d960abd427aae6e4d3e"
+  },
+  {
+   "path": "tests/test_direction_sim.R",
+   "sha256": "55d8ac61a677ef54022382d0beff8bfd5a68d20c407f29204d7c494dd0ee8078"
+  },
+  {
+   "path": "renv.lock",
+   "sha256": "4b4f23fc996f3b1219970fb77f52484f59fe414e055afb5bc15466c57018b975"
+  },
+  {
+   "path": "RENV_SPEC.md",
+   "sha256": "bd81f6d91d85a7f3496ecb916cc154f1fbc2c8b939bd7bff97ef19ba5c8f05ab"
+  },
+  {
+   "path": "R/03_omega.R",
+   "sha256": "18639ebdf7333160e1a026be843e94b903b1b54567a8189b655e40767b914e6a"
+  },
+  {
+   "path": "R/04_omega_run.R",
+   "sha256": "b30677962bf42fe2506cedf6e4cac2e0f77880926d825d99225da18ab234a040"
+  }
+ ],
+ "audit": {
+  "path": "/workspace/plumber/selfcomp_v2_audit/AUDIT.md",
+  "sha256": "5baf073ff179407843dff0cab0711a846184966c0ef636caac815b993bd76258"
+ },
+ "approval": {
+  "plumber": "PASS",
+  "matt_verbatim": "Keep both defaults",
+  "matt_time": "2026-10-24 11:53 PT",
+  "relayed_via": "Plumber (verified in Blacksmith transcript)"
+ },
+ "notes": "No holdout; full-sample Bayesian analysis. Lock before fit is the leakage control.",
+ "amendments": [
+  {
+   "id": "C5",
+   "time_pt": "2026-10-24T12:32:59",
+   "by": "Fort Knox",
+   "basis": "Plumber C5 (v3 fit audit 07428aec\u20263934)",
+   "change": "added R/03_omega.R at pre-lock baseline hash",
+   "prior_lock_sha256": "d7c77e3c5082f627618dcad6782751843d3141b6a08dd2fa4d5994184cedb58d",
+   "prior_sums_sha256": "8a3efcb944f1af13b8444e2b8190dc1c5f1660f4617bc1bbb2e9d97895bc346e"
+  },
+  {
+   "id": "C6",
+   "time_pt": "2026-10-24T12:36:18",
+   "by": "Fort Knox",
+   "basis": "Plumber PASS on omega driver",
+   "change": "added R/04_omega_run.R",
+   "prior_lock_sha256": "919cb70293543a3f8a331a817564707217b6fc121c8b5443eadd1dce38753451",
+   "prior_sums_sha256": "9c4760174db253daa1a6f77561217f7ebfebcbf4ca5cc3d9144e7c75e805783c"
+  },
+  {
+   "id": "C7",
+   "time": "2026-10-24T13:01:41.146930-07:00",
+   "basis": "Plumber PASS 13:01 PT (audit 0a00c6e4...63e1); runs only after Apprentice MATCH, sequential nice 19; 06 waits for P_dir MATCH",
+   "prior_lock_sha256": "28b858dde3359245b3962b1869cd30cc1f911a9bcf0c0f04006377311f60a21c",
+   "prior_sums_sha256": "493cf75db09dacce78649d5631e4688171d9c26fdbe2adca493e8813400febcf",
+   "added": {
+    "R/05_omega_run_diag.R": "2607677f5a3cd4dc125b719fe2fec91e6fbbcda3b3090e6b631e8df6c215df37",
+    "R/06a_regen_draws.R": "8fc70cc0d548e2c88abc6e61436d017b7edd497eb706bacd33baf50256d8996c",
+    "R/07_fit_ps.R": "2f0d15bfdbce3673c7d86259abf480fdb0d29bb7be138bae39ce27ead3f599be",
+    "R/06_aggregates.R": "e43f90ed3f4789b4bcfbd22b31e1b395d7b0554347e2cfc35cefd6653c92b099",
+    "R/08_fit_no_nonmed.R": "63b72c56fa94997f7b309d009d5006c38558632648544ab8401d146caf15a7a9",
+    "tests/test_06a_compare.R": "a8c5f7350b9bf76345fca41331ea83cd6034ac30f5d65571c34c5d2616072e33",
+    "docs/DEVIATIONS.md": "e13d78d2c17fe5901f0d7cbc99e19afa0f74b6d6530f64c7890f83cf7f0d3ac4",
+    "docs/RUN_ORDER.md": "862bbaa1558a9e885db90c946b8671cfcaa1ff571e0ec2978d490ccf2024f896",
+    "docs/NEGATIVE_RESULTS.md": "97043d2793116a4c1b21ad7ec8f94233f46ef2aa175e360db690286dd4dcd178"
+   }
+  },
+  {
+   "id": "C8",
+   "time": "2026-10-24T13:29:05.795823-07:00",
+   "basis": "Pre-action plan DIARY-RELOCK-05: Plumber PASS 13:26 + condition-4 VERIFIED 13:27; Apprentice Plumber MATCH 13:28 (M1-M5)",
+   "prior_lock_sha256": "48d34e46180bb8bfc8cbce8a2c541846f18d6f81796dccc624efebe5c13f9958",
+   "prior_sums_sha256": "62e8b37d0ba3cd456b2ecc5e305b76d45c392d541d5c43d43c34a5fd6fe89373",
+   "replaced": {
+    "R/05_omega_run_diag.R": [
+     "2607677f5a3cd4dc125b719fe2fec91e6fbbcda3b3090e6b631e8df6c215df37",
+     "2570c8fb721bb1bd3e308f6a09f9b80fbfb586f6a2c14ca32eda63068d9d3eb2"
+    ],
+    "docs/DEVIATIONS.md": [
+     "e13d78d2c17fe5901f0d7cbc99e19afa0f74b6d6530f64c7890f83cf7f0d3ac4",
+     "bffc188764193c56eea17353687213f2a811ecabf07202a103bcc938da619190"
+    ],
+    "docs/NEGATIVE_RESULTS.md": [
+     "97043d2793116a4c1b21ad7ec8f94233f46ef2aa175e360db690286dd4dcd178",
+     "35aba98a962ffa650f18ae1835f70f6478870045b849b4faedf14e09955787d7"
+    ]
+   },
+   "retained": "R/05_omega_run_diag.R.locked_C7 (not in SHA256SUMS)"
+  },
+  {
+   "id": "C9",
+   "time": "2026-10-24T13:45:10.744458-07:00",
+   "basis": "Pre-action plan DIARY-RELOCK-C9: Plumber PASS 13:42 + conditions VERIFIED 13:44; Apprentice Plumber MATCH 13:44 (M1-M5)",
+   "prior_lock_sha256": "400609fcd3e8e0ed097f9a9de2da6e450bbe94fddd6700fa47677e3663d246af",
+   "prior_sums_sha256": "26e0e3a2245f401c67c535d84c79f7af6c1b77df46c5d3758ef3fd5290c3a4af",
+   "replaced": {
+    "R/05_omega_run_diag.R": [
+     "2570c8fb721bb1bd3e308f6a09f9b80fbfb586f6a2c14ca32eda63068d9d3eb2",
+     "441f0c24b27613ff265bc1460617b65a668538208df4153010c9879da68e963e"
+    ],
+    "docs/DEVIATIONS.md": [
+     "bffc188764193c56eea17353687213f2a811ecabf07202a103bcc938da619190",
+     "daae4364ed8121ce3408739919045f9ee207241ae941a9d594359391ec9bb0e1"
+    ],
+    "docs/NEGATIVE_RESULTS.md": [
+     "35aba98a962ffa650f18ae1835f70f6478870045b849b4faedf14e09955787d7",
+     "2c1e695656b6c144941a44431644302f04ff909261c4680e8a25e594ff530481"
+    ]
+   },
+   "retained": "R/05_omega_run_diag.R.locked_C8 (not in SHA256SUMS)"
+  },
+  {
+   "id": "C10",
+   "time": "2026-10-24T16:15:11.603101-07:00",
+   "basis": "Pre-action plan DIARY-RELOCK-C10: Plumber PASS 16:13 (covers D-f reversal; D-g post hoc, disclosed); Apprentice Plumber MATCH 16:14 (M1-M5, raw resend)",
+   "prior_lock_sha256": "251463db5bf28019bf279d61410673f711d4bd25af11c91af426b352f3a73be2",
+   "prior_sums_sha256": "cb7e6feb1dc7690df133e87e207e7c86f9d7a66fe3f37be8c26a2fd1e9982a59",
+   "replaced": {
+    "R/05_omega_run_diag.R": [
+     "441f0c24b27613ff265bc1460617b65a668538208df4153010c9879da68e963e",
+     "cda652ccfdd06c3b39693ca4dd5e76b74f3e8817eb8886873fb595eace49f40e"
+    ],
+    "docs/DEVIATIONS.md": [
+     "daae4364ed8121ce3408739919045f9ee207241ae941a9d594359391ec9bb0e1",
+     "bd339596fcaa395fbcc5dc90f3fb7a9ec71a6923b6c664d6cf86ac0e1219b766"
+    ],
+    "docs/NEGATIVE_RESULTS.md": [
+     "2c1e695656b6c144941a44431644302f04ff909261c4680e8a25e594ff530481",
+     "3a24c0f02da9b52c9678f43d80052f7c2e0d91df96eb28dd9d15814c3cc9cca9"
+    ]
+   },
+   "retained": "R/05_omega_run_diag.R.locked_C9 (not in SHA256SUMS)"
+  },
+  {
+   "id": "C11",
+   "time": "2026-10-24T16:19:42.504727-07:00",
+   "basis": "Pre-action plan DIARY-RELOCK-C11 (revised; 9364b967 void): Plumber PASS 16:18; Apprentice Plumber MATCH 16:19 (M1-M5)",
+   "prior_lock_sha256": "3743767732eb777a3da527e75d32f8ee41e0466f568c8e10c4b5014b053f5724",
+   "prior_sums_sha256": "e844bf59d920320ddccf1d2c64a77f9142dd8f79ca72afdaf058c2699d1d5570",
+   "replaced": {
+    "R/05_omega_run_diag.R": [
+     "cda652ccfdd06c3b39693ca4dd5e76b74f3e8817eb8886873fb595eace49f40e",
+     "396fc00be54b4685b14206d62f393fcf83737ec72d9c9f8a95f041265a84188a"
+    ],
+    "docs/NEGATIVE_RESULTS.md": [
+     "3a24c0f02da9b52c9678f43d80052f7c2e0d91df96eb28dd9d15814c3cc9cca9",
+     "c770686d210e819b0d26e9d0d13d94287f9782477038aecf8898515c3fd5e366"
+    ]
+   },
+   "retained": "R/05_omega_run_diag.R.locked_C10 (not in SHA256SUMS)"
+  },
+  {
+   "id": "C12",
+   "time": "2026-10-24T17:10:00-07:00",
+   "basis": "Plumber PASS 17:04 (revised plan (c)); Apprentice Plumber MATCH; dsem_meditation.stan restored to pinned 02e4cfc5 (comment edit reverted) and added to SUMS; DEVIATIONS.md append-only (D-h + C12 revert note); no refit",
+   "prior_lock_sha256": "b1ec64022cc878f2d11225b1ca74d4e9af9812df6dce68be4a035df860f9b937",
+   "prior_sums_sha256": "f4c38347c04fb855378a68feee755de8c7ca565f89358ac0e2556e19f5d57dc0",
+   "replaced": {
+    "docs/DEVIATIONS.md": {
+     "from": "bd339596fcaa395fbcc5dc90f3fb7a9ec71a6923b6c664d6cf86ac0e1219b766",
+     "to": "02f4244582b8b839e8ae6c43fcd377568039ab380bb4c0cabafdc8fc2cb43f4c"
+    }
+   },
+   "added": {
+    "dsem_meditation.stan": "02e4cfc55cce376ac08d1b32e86736936f6668d06b5b1c14558f29f2104ccd23"
+   },
+   "retained": "all other SHA256SUMS entries unchanged"
+  }
+ ]
+}
