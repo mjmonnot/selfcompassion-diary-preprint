@@ -1,0 +1,71 @@
+{
+  "node_id": "pqf6v",
+  "html": "https://osf.io/pqf6v/",
+  "api_node": "https://api.osf.io/v2/nodes/pqf6v/",
+  "title": "Daily interventions and assessments: the effect of online self-compassion meditation on psychological health",
+  "description": "",
+  "description_present": false,
+  "public": true,
+  "category": "project",
+  "date_created": "2021-04-07T04:39:39.403420",
+  "date_modified": "2021-04-07T04:45:12.152656",
+  "tags": [],
+  "node_license": null,
+  "license_relationship": null,
+  "identifiers": [
+    {
+      "id": "606d38d8f2ad330285a77303",
+      "category": "doi",
+      "value": "10.17605/OSF.IO/PQF6V"
+    }
+  ],
+  "osf_doi_probe": {
+    "url": "https://doi.org/10.17605/OSF.IO/PQF6V",
+    "status_code": 200,
+    "final_url": "https://osf.io/pqf6v/"
+  },
+  "child_node_ids": [],
+  "wiki_pages": [],
+  "providers": [
+    "osfstorage"
+  ],
+  "fetched_at": "2026-10-22T15:58:43+00:00",
+  "file_count": 2,
+  "total_bytes": 70448,
+  "files": [
+    {
+      "node_id": "pqf6v",
+      "provider": "osfstorage",
+      "osf_id": "606d38a8f2ad33027da78960",
+      "osf_guid": "dr6wn",
+      "name": "days.sav",
+      "materialized_path": "/days.sav",
+      "download_url": "https://osf.io/download/dr6wn/",
+      "osf_size": 61714,
+      "local_size": 61714,
+      "size_match": true,
+      "osf_sha256": "9304c468438bbd1d301d4405c9a4a4096d59b019abd04e6a9b26766a44e1acb4",
+      "sha256": "9304c468438bbd1d301d4405c9a4a4096d59b019abd04e6a9b26766a44e1acb4",
+      "sha256_match": true,
+      "local_path": "data/raw/days.sav",
+      "date_modified": "2021-04-07T04:44:24.781500"
+    },
+    {
+      "node_id": "pqf6v",
+      "provider": "osfstorage",
+      "osf_id": "606d38ad51f7ae0246f55cdf",
+      "osf_guid": "8rjfv",
+      "name": "persons.sav",
+      "materialized_path": "/persons.sav",
+      "download_url": "https://osf.io/download/8rjfv/",
+      "osf_size": 8734,
+      "local_size": 8734,
+      "size_match": true,
+      "osf_sha256": "d12dc3d73e037888fd888b3c0305354cef65ccaa409ed004b32e4f5a4b3af949",
+      "sha256": "d12dc3d73e037888fd888b3c0305354cef65ccaa409ed004b32e4f5a4b3af949",
+      "sha256_match": true,
+      "local_path": "data/raw/persons.sav",
+      "date_modified": "2021-04-07T04:44:29.551276"
+    }
+  ]
+}
