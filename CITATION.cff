@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use this repository or cite the study, please cite the preprint."
+title: "Does Daily Meditation Increase Self-Compassion? A Bayesian Multilevel Diary Study"
+authors:
+  - family-names: Monnot
+    given-names: Matthew J.
+    orcid: "https://orcid.org/0000-0002-9489-1777"
+    affiliation: Vocentive
+doi: "10.31234/osf.io/986ht_v1"
+url: "https://doi.org/10.31234/osf.io/986ht_v1"
+repository-code: "https://github.com/mjmonnot/selfcompassion-diary-preprint"
+preferred-citation:
+  type: article
+  authors:
+    - family-names: Monnot
+      given-names: Matthew J.
+      orcid: "https://orcid.org/0000-0002-9489-1777"
+  title: "Does Daily Meditation Increase Self-Compassion? A Bayesian Multilevel Diary Study"
+  year: 2026
+  doi: "10.31234/osf.io/986ht_v1"
+  url: "https://doi.org/10.31234/osf.io/986ht_v1"
+  publisher:
+    name: PsyArXiv
